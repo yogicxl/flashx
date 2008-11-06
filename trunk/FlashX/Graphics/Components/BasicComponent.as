@@ -1,18 +1,16 @@
 ﻿package FlashX.Graphics.Components
 {
-	import FlashX.Graphics.*;
-	
 	import FlashX.Core.Abstract;
 	
-	import FlashX.Math.Vector;
-	import FlashX.Math.Quaternion;
+	import FlashX.Math.*;
+	import FlashX.Graphics.*;
 	
-	public class BasicComponent extends Abstract implements Component
+	public class BasicComponent extends Abstract implements IComponent
 	{
-		private var position:Vector;
-		private var rotation:Vector;
+		private var position:IVector;
+		private var rotation:IVector;
 		
-		private var direction:Quaternion;
+		private var direction:IQuaternion;
 		
 		private var visible:Boolean;
 		
@@ -34,32 +32,32 @@
 		* Drawable Properties
 		*/
 
-		public function get Position():Vector
+		public function get Position():IVector
 		{
 			return this.position;
 		}
 		
-		public function set Position(position:Vector):void
+		public function set Position(position:IVector):void
 		{
 			this.position = position;
 		}
 		
-		public function get Rotation():Vector
+		public function get Rotation():IVector
 		{
 			return this.rotation;
 		}
 		
-		public function set Rotation(rotation:Vector):void
+		public function set Rotation(rotation:IVector):void
 		{
 			this.rotation = rotation;
 		}
 		
-		public function get Direction():Quaternion
+		public function get Direction():IQuaternion
 		{
 			return this.direction;
 		}
 		
-		public function set Direction(direction:Quaternion):void
+		public function set Direction(direction:IQuaternion):void
 		{
 			this.direction = direction;
 		}
@@ -68,24 +66,12 @@
 		* Methods
 		*/
 		
-		public function Initialize():void
-		{
-			
-		}
+		public function Initialize():void {}
 		
-		public function Update():void
-		{
+		public function Update():void {}
 
-		}
-
-		public function Draw():void
-		{
-
-		}
+		public function Draw():void {}
 		
-		public function Dispose():void
-		{
-			
-		}
+		public function Dispose():void {}
 	}
 }

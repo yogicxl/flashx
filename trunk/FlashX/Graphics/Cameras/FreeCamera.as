@@ -1,11 +1,6 @@
 ﻿package FlashX.Graphics.Cameras
 {
-	import FlashX.Math.Vector;
-	import FlashX.Math.Matrix;
-	import FlashX.Math.Quaternion;
-	
-	import FlashX.Math.Vector3;
-	import FlashX.Math.Matrix4;
+	import FlashX.Math.*
 	
 	public class FreeCamera extends BasicCamera
 	{
@@ -18,7 +13,7 @@
 			this.Position = Vector3.Zero;
 			this.Rotation = Vector3.Zero;
 			
-			this.Direction = Quaternion.Identity;
+			this.Direction = Quaternion3.Identity;
 
 			this.View = Matrix4.Identity;
 		}
@@ -29,17 +24,22 @@
 		
 		public override function Initialize():void
 		{
-			
+			super.Initialize();
 		}
 
 		public override function Update():void
 		{
-
+			super.Update();
 		}
 
 		public override function Draw():void
 		{
-
+			super.Draw();
+		}
+		
+		public override function Dispose():void
+		{
+			super.Dispose();
 		}
 	}
 }

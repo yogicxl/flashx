@@ -7,7 +7,7 @@
 
 package FlashX.Math
 {
-	public class Vector3 extends Object implements Vector
+	public class Vector3 implements IVector
 	{
 		private var x:int;
 		private var y:int;
@@ -102,27 +102,27 @@ package FlashX.Math
 		* Premade Vectors
 		*/
 		
-		static public function get Forward():Vector { return new Vector3(0, 0, 1); }
-		static public function get Backward():Vector { return new Vector3(0, 0, -1); }
+		static public function get Forward():IVector { return new Vector3(0, 0, 1); }
+		static public function get Backward():IVector { return new Vector3(0, 0, -1); }
 		
-		static public function get Up():Vector { return new Vector3(0, 1, 0); }
-		static public function get Down():Vector { return new Vector3(0, -1, 0); }
+		static public function get Up():IVector { return new Vector3(0, 1, 0); }
+		static public function get Down():IVector { return new Vector3(0, -1, 0); }
 		
-		static public function get Left():Vector { return new Vector3(-1, 0, 0); }
-		static public function get Right():Vector { return new Vector3(1, 0, 0); }
+		static public function get Left():IVector { return new Vector3(-1, 0, 0); }
+		static public function get Right():IVector { return new Vector3(1, 0, 0); }
 		
-		static public function get UnitX():Vector { return new Vector3(1, 0, 0); }
-		static public function get UnitY():Vector { return new Vector3(0, 1, 0); }
-		static public function get UnitZ():Vector { return new Vector3(0, 0, 1); }
+		static public function get UnitX():IVector { return new Vector3(1, 0, 0); }
+		static public function get UnitY():IVector { return new Vector3(0, 1, 0); }
+		static public function get UnitZ():IVector { return new Vector3(0, 0, 1); }
 		
-		static public function get Zero():Vector { return new Vector3(0, 0, 0); }
-		static public function get One():Vector { return new Vector3(1, 1, 1); }
+		static public function get Zero():IVector { return new Vector3(0, 0, 0); }
+		static public function get One():IVector { return new Vector3(1, 1, 1); }
 
 		/*
 		* Arithmetic Methods
 		*/
 
-		public function Add(v:Vector):Vector
+		public function Add(v:IVector):IVector
 		{
 			this.X += v.X;
 			this.Y += v.Y;
@@ -131,12 +131,12 @@ package FlashX.Math
 			return this;
 		}
 		
-		static public function Add(v1:Vector, v2:Vector):Vector
+		static public function Add(v1:IVector, v2:IVector):IVector
 		{
 			return new Vector3(v1.X + v2.X, v1.Y + v2.Y, v1.Z + v2.Z);
 		}
 		
-		public function Subtract(v:Vector):Vector
+		public function Subtract(v:IVector):IVector
 		{
 			this.X -= v.X;
 			this.Y -= v.Y;
@@ -145,12 +145,12 @@ package FlashX.Math
 			return this;
 		}
 		
-		static public function Subtract(v1:Vector, v2:Vector):Vector
+		static public function Subtract(v1:IVector, v2:IVector):IVector
 		{
 			return new Vector3(v1.X - v2.X, v1.Y - v2.Y, v1.Z - v2.Z);
 		}
 		
-		public function Multiply(n:Number):Vector
+		public function Multiply(n:Number):IVector
 		{
 			this.X *= n;
 			this.Y *= n;
@@ -159,12 +159,12 @@ package FlashX.Math
 			return this;
 		}
 		
-		static public function Multiply(v:Vector, n:Number):Vector
+		static public function Multiply(v:IVector, n:Number):IVector
 		{
 			return new Vector3(v.X * n, v.Y * n, v.Z * n);
 		}
 		
-		public function Divide(n:Number):Vector
+		public function Divide(n:Number):IVector
 		{
 			this.X /= n;
 			this.Y /= n;
@@ -173,12 +173,12 @@ package FlashX.Math
 			return this;
 		}
 		
-		static public function Divide(v:Vector, n:Number):Vector
+		static public function Divide(v:IVector, n:Number):IVector
 		{
 			return new Vector3(v.X / n, v.Y / n, v.Z / n);
 		}
 		
-		public function Normalize():Vector
+		public function Normalize():IVector
 		{
 			this.Divide(this.Length);
 			
@@ -187,12 +187,12 @@ package FlashX.Math
 			return this;
 		}
 
-		static public function Normalize(v:Vector):Vector
+		static public function Normalize(v:IVector):IVector
 		{
 			return new Vector3(v.X / v.Length, v.Y / v.Length, v.Z / v.Length);
 		}
 		
-		public function Invert():Vector
+		public function Invert():IVector
 		{
 			this.X *= -1;
 			this.Y *= -1;
@@ -201,22 +201,22 @@ package FlashX.Math
 			return this;
 		}
 		
-		static public function Invert(v:Vector):Vector
+		static public function Invert(v:IVector):IVector
 		{
 			return new Vector3(-v.X, -v.Y, -v.Z);
 		}
 		
-		public function Dot(v:Vector):Number
+		public function Dot(v:IVector):Number
 		{
 			return (this.X * v.X) + (this.Y * v.Y) + (this.Z * v.Z);
 		}
 		
-		static function Dot(v1:Vector, v2:Vector):Number
+		static function Dot(v1:IVector, v2:IVector):Number
 		{
 			return (v1.X * v2.X) + (v1.Y * v2.Y) + (v1.Z * v2.Z);
 		}
 		
-		public function Cross(v:Vector):Vector
+		public function Cross(v:IVector):IVector
 		{
 			this.X = (this.Y * v.Z) - (this.Z * v.Y);
 			this.Y = (this.Z * v.X) - (this.X * v.Z);
@@ -225,14 +225,14 @@ package FlashX.Math
 			return this;
 		}
 		
-		static public function Cross(v1:Vector, v2:Vector):Vector
+		static public function Cross(v1:IVector, v2:IVector):IVector
 		{
 			return new Vector3((v1.Y * v2.Z) - (v1.Z * v2.Y), (v1.Z * v2.X) - (v1.X * v2.Z), (v1.X * v2.Y) - (v1.Y * v2.X));
 		}
 		
-		static public function Lerp(v1:Vector, v2:Vector, n:Number):Vector
+		static public function Lerp(v1:IVector, v2:IVector, n:Number):IVector
 		{
-			var v:Vector = Vector3.Subtract(v2, v1);
+			var v:IVector = Vector3.Subtract(v2, v1);
 			
 			v.Multiply(n);
 			v.Add(v1);
@@ -241,64 +241,64 @@ package FlashX.Math
 		}
 
 		// beta
-		public static function Bezier(v1:Vector, v2:Vector, v3:Vector, n:Number):Vector
+		public static function Bezier(v1:IVector, v2:IVector, v3:IVector, n:Number):IVector
 		{
-			var v4:Vector = Vector3.Lerp(v1, v2, n);
-			var v5:Vector = Vector3.Lerp(v2, v3, n);
+			var v4:IVector = Vector3.Lerp(v1, v2, n);
+			var v5:IVector = Vector3.Lerp(v2, v3, n);
 			
 			return Vector3.Lerp(v4, v5, n);
 		}
 		
 		// beta
-		public static function CatmullRom(v1:Vector, v2:Vector, v3:Vector, v4:Vector, n:Number):Vector
+		public static function CatmullRom(v1:IVector, v2:IVector, v3:IVector, v4:IVector, n:Number):IVector
 		{
 			return Vector3.Zero;
 		}
 		
 		// beta
-		public static function Barycentric(v1:Vector, v2:Vector, v3:Vector, n1:Number, n2:Number):Vector
+		public static function Barycentric(v1:IVector, v2:IVector, v3:IVector, n1:Number, n2:Number):IVector
 		{
 			return Vector3.Zero;
 		}
 		
 		// beta
-		public static function Clamp(v:Vector, min:Vector, max:Vector):Vector
+		public static function Clamp(v:IVector, min:IVector, max:IVector):IVector
 		{
 			return Vector3.Zero;
 		}
 		
 		// beta
-		public static function Transform(v:Vector, m:Matrix):Vector
+		public static function Transform(v:IVector, m:IMatrix):IVector
 		{
 			return Vector3.Zero;
 		}
 		
 		// beta
-		public static function TransformQuaternion(v:Vector, q:Quaternion):Vector
+		public static function TransformQuaternion(v:IVector, q:IQuaternion):IVector
 		{
 			return Vector3.Zero;
 		}
 		
-		static public function Distance(v1:Vector, v2:Vector):Number
+		static public function Distance(v1:IVector, v2:IVector):Number
 		{
-			var v:Vector = Vector3.Subtract(v1, v2);
+			var v:IVector = Vector3.Subtract(v1, v2);
 			
 			return v.Length;
 		}
 		
-		static public function DistanceSquared(v1:Vector, v2:Vector):Number
+		static public function DistanceSquared(v1:IVector, v2:IVector):Number
 		{
-			var v:Vector = Vector3.Subtract(v1, v2);
+			var v:IVector = Vector3.Subtract(v1, v2);
 			
 			return v.LengthSquared;
 		}
 		
-		static public function Max(v1:Vector, v2:Vector):Vector
+		static public function Max(v1:IVector, v2:IVector):IVector
 		{
 			return new Vector3(Math.max(v1.X, v2.X), Math.max(v1.Y, v2.Y), Math.max(v1.Z, v2.Z));
 		}
 		
-		static public function Min(v1:Vector, v2:Vector):Vector
+		static public function Min(v1:IVector, v2:IVector):IVector
 		{
 			return new Vector3(Math.min(v1.X, v2.X), Math.min(v1.Y, v2.Y), Math.min(v1.Z, v2.Z));
 		}
@@ -307,17 +307,17 @@ package FlashX.Math
 		* Trigonometry Methods
 		*/
 		
-		public function Angle(v:Vector):Number
+		public function Angle(v:IVector):Number
 		{
 			return Math.acos(this.Dot(v) / (this.Length * v.Length));
 		}
 		
-		static public function Angle(v1:Vector, v2:Vector):Number
+		static public function Angle(v1:IVector, v2:IVector):Number
 		{
 			return Math.acos(Vector3.Dot(v1, v2) / (v1.Length * v2.Length));
 		}
 		
-		public function Reflect(normal:Vector):Vector
+		public function Reflect(normal:IVector):IVector
 		{
 			var dot:Number = 2 * this.Dot(normal);
 			
@@ -328,7 +328,7 @@ package FlashX.Math
 			return this;
 		}
 		
-		static public function Reflect(v:Vector, normal:Vector):Vector
+		static public function Reflect(v:IVector, normal:IVector):IVector
 		{
 			var dot:Number = 2 * Vector3.Dot(v, normal);
 			
@@ -339,35 +339,29 @@ package FlashX.Math
 		* Basic Methods
 		*/
 		
-		public function Null():Vector
+		public function Null():IVector
 		{
 			this.X = this.Y = this.Z = 0;
 			
 			return this;
 		}
 		
-		static public function Null():Vector
+		static public function Null():IVector
 		{
 			return new Vector3();
 		}
 		
-		public function Equals(v:Vector):Boolean
+		public function Equals(v:IVector):Boolean
 		{
-			if((v.X == this.X) && (v.Y == this.Y) && (v.Z == this.Z))
-				return true;
-			else
-				return false;
+			return (this.X == v.X) && (this.Y == v.Y) && (this.Z == v.Z);
 		}
 		
-		static public function Equals(v1:Vector, v2:Vector):Boolean
+		static public function Equals(v1:IVector, v2:IVector):Boolean
 		{
-			if((v1.X == v2.X) && (v1.Y == v2.Y) && (v1.Z == v2.Z))
-				return true;
-			else
-				return false;
+			return (v1.X == v2.X) && (v1.Y == v2.Y) && (v1.Z == v2.Z);
 		}
 
-		public function Copy(v:Vector):Vector
+		public function Copy(v:IVector):IVector
 		{
 			this.X = v.X;
 			this.Y = v.Y;
@@ -376,7 +370,7 @@ package FlashX.Math
 			return this;
 		}
 		
-		public function Clone():Vector
+		public function Clone():IVector
 		{
 			return new Vector3(this.X, this.Y, this.Z);
 		}

@@ -6,7 +6,7 @@
 
 package FlashX.Math
 {
-	public interface Matrix
+	public interface IMatrix
 	{
 		
 	}

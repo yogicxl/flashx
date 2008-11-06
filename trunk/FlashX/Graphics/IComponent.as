@@ -1,6 +1,6 @@
 ﻿package FlashX.Graphics
 {
-	public interface Component extends Drawable, Updateable, Disposable
+	public interface IComponent extends IDrawable, IUpdateable, IDisposable
 	{
 		/*
 		* Properties

@@ -4,7 +4,7 @@
 	
 	import FlashX.Core.Abstract;
 	
-	public class BasicLighting extends Abstract implements Lighting
+	public class BasicLighting extends Abstract implements ILighting
 	{
 		
 	}

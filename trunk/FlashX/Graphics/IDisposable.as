@@ -1,6 +1,6 @@
 ﻿package FlashX.Graphics
 {
-	public interface Disposable
+	public interface IDisposable
 	{
 		
 	}

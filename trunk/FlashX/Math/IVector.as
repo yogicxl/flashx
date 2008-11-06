@@ -3,7 +3,7 @@
 	/*
 	* Implicit casting between Vector2 and Vector3. Strict usage.
 	*/
-	public interface Vector
+	public interface IVector
 	{
 		/*
 		* Properties
@@ -31,41 +31,41 @@
 		* Arithmetic Methods
 		*/
 		
-		function Add(v:Vector):Vector;
+		function Add(v:IVector):IVector;
 		
-		function Subtract(v:Vector):Vector;
+		function Subtract(v:IVector):IVector;
 		
-		function Multiply(n:Number):Vector;
+		function Multiply(n:Number):IVector;
 		
-		function Divide(n:Number):Vector;
+		function Divide(n:Number):IVector;
 		
-		function Normalize():Vector;
+		function Normalize():IVector;
 		
-		function Invert():Vector;
+		function Invert():IVector;
 		
-		function Dot(v:Vector):Number;
+		function Dot(v:IVector):Number;
 		
-		function Cross(v:Vector):Vector;
+		function Cross(v:IVector):IVector;
 		
 		/*
 		* Trigonometry Methods
 		*/
 		
-		function Angle(v:Vector):Number;
+		function Angle(v:IVector):Number;
 		
-		function Reflect(normal:Vector):Vector;
+		function Reflect(normal:IVector):IVector;
 		
 		/*
 		* Basic Methods
 		*/
 		
-		function Null():Vector;
+		function Null():IVector;
 		
-		function Equals(v:Vector):Boolean;
+		function Equals(v:IVector):Boolean;
 		
-		function Copy(v:Vector):Vector;
+		function Copy(v:IVector):IVector;
 		
-		function Clone():Vector;
+		function Clone():IVector;
 		
 		function toString():String;
 	}

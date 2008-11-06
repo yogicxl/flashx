@@ -1,6 +1,7 @@
 ﻿package FlashX.Core
 {
 	import flash.utils.getQualifiedClassName;
+	import flash.utils.getQualifiedSuperclassName;
 	
 	public class Abstract
 	{
@@ -10,8 +11,8 @@
 		
 		public function Abstract()
 		{
-			if (getQualifiedClassName(this).substr(8,8) == "abstract")
-				throw new Error("Class is abstract and must be extended.");
+			if (getQualifiedSuperclassName(this).substr(-8) == "Abstract")
+				throw new Error(getQualifiedClassName(this) + " is abstract and must be extended.");
 		}
 	}
 }

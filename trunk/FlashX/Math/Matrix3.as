@@ -1,6 +1,6 @@
 ﻿package FlashX.Math
 {
-	public class Matrix3 implements Matrix
+	public class Matrix3 implements IMatrix
 	{
         public var M11:Number;
         public var M12:Number;
@@ -23,6 +23,6 @@
 			this.M31 = M31; this.M32 = M32; this.M33 = M33;
 		}
 		
-		static public function get Identity():Matrix { return new Matrix3(1, 0, 0, 0, 1, 0, 0, 0, 1); }
+		static public function get Identity():IMatrix { return new Matrix3(1, 0, 0, 0, 1, 0, 0, 0, 1); }
 	}
 }

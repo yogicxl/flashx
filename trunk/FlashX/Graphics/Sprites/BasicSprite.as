@@ -1,26 +1,23 @@
 ﻿package FlashX.Graphics.Sprites
 {
-	import FlashX.Graphics.*;
-	
 	import FlashX.Core.Abstract;
 	
-	import FlashX.Math.Vector;
-	import FlashX.Math.Matrix;
-	import FlashX.Math.Quaternion;
+	import FlashX.Math.*;
+	import FlashX.Graphics.*;
 	
-	public class BasicSprite extends Abstract implements Sprite
+	public class BasicSprite extends Abstract implements ISprite
 	{
-		private var position:Vector;
-		private var rotation:Vector;
+		private var position:IVector;
+		private var rotation:IVector;
 		
-		private var direction:Quaternion;
+		private var direction:IQuaternion;
 		
-		private var world:Matrix;
-		private var view:Matrix;
-		private var projection:Matrix;
+		private var world:IMatrix;
+		private var view:IMatrix;
+		private var projection:IMatrix;
 		
-		private var camera:Camera;
-		private var lighting:Lighting;
+		private var camera:ICamera;
+		private var lighting:ILighting;
 		
 		private var visible:Boolean;
 		
@@ -42,32 +39,32 @@
 		* Drawable Properties
 		*/
 		
-		public function get Position():Vector
+		public function get Position():IVector
 		{
 			return this.position;
 		}
 		
-		public function set Position(position:Vector):void
+		public function set Position(position:IVector):void
 		{
 			this.position = position;
 		}
 		
-		public function get Rotation():Vector
+		public function get Rotation():IVector
 		{
 			return this.rotation;
 		}
 		
-		public function set Rotation(rotation:Vector):void
+		public function set Rotation(rotation:IVector):void
 		{
 			this.rotation = rotation;
 		}
 		
-		public function get Direction():Quaternion
+		public function get Direction():IQuaternion
 		{
 			return this.direction;
 		}
 		
-		public function set Direction(direction:Quaternion):void
+		public function set Direction(direction:IQuaternion):void
 		{
 			this.direction = direction;
 		}
@@ -76,52 +73,52 @@
 		* Sprite Properties
 		*/
 		
-		public function get World():Matrix
+		public function get World():IMatrix
 		{
 			return this.world;
 		}
 		
-		public function set World(world:Matrix):void
+		public function set World(world:IMatrix):void
 		{
 			this.world = world;
 		}
 		
-		public function get View():Matrix
+		public function get View():IMatrix
 		{
 			return this.view;
 		}
 		
-		public function set View(view:Matrix):void
+		public function set View(view:IMatrix):void
 		{
 			this.view = view;
 		}
 		
-		public function get Projection():Matrix
+		public function get Projection():IMatrix
 		{
 			return this.projection;
 		}
 		
-		public function set Projection(projection:Matrix):void
+		public function set Projection(projection:IMatrix):void
 		{
 			this.projection = projection;
 		}
 		
-		public function get Camera2():Camera
+		public function get Camera():ICamera
 		{
 			return this.camera;
 		}
 		
-		public function set Camera2(camera:Camera):void
+		public function set Camera(camera:ICamera):void
 		{
 			this.camera = camera;
 		}
 		
-		public function get Lighting2():Lighting
+		public function get Lighting():ILighting
 		{
 			return this.lighting;
 		}
 		
-		public function set Lighting2(lighting:Lighting):void
+		public function set Lighting(lighting:ILighting):void
 		{
 			this.lighting = lighting;
 		}

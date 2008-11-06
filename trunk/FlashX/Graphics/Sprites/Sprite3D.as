@@ -1,8 +1,6 @@
 ﻿package FlashX.Graphics.Sprites
 {
-	import FlashX.Math.Vector3;
-	import FlashX.Math.Matrix4;
-	import FlashX.Math.Quaternion;
+	import FlashX.Math.*;
 	
 	public class Sprite3D extends BasicSprite
 	{
@@ -15,7 +13,7 @@
 			this.Position = Vector3.Zero;
 			this.Rotation = Vector3.Zero;
 			
-			this.Direction = Quaternion.Identity;
+			this.Direction = Quaternion3.Identity;
 			
 			this.World = Matrix4.Identity;
 			this.View = Matrix4.Identity;
@@ -30,6 +28,7 @@
 		{
 			// update direction via rotation
 			// update view
+			
 		}
 		
 		public override function Draw():void

@@ -1,6 +1,6 @@
 ﻿package FlashX.Graphics
 {
-	public class Model
+	public interface ILighting
 	{
 		
 	}

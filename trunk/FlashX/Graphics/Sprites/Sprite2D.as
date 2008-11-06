@@ -11,7 +11,7 @@
 			this.Position = Vector2.Zero;
 			this.Rotation = Vector2.Zero;
 			
-			this.Direction = Quaternion.Identity;
+			this.Direction = Quaternion3.Identity;
 			
 			this.World = Matrix3.Identity;
 			this.View = Matrix3.Identity;
@@ -26,6 +26,7 @@
 		{
 			// update direction via rotation
 			// update view
+			
 		}
 		
 		public override function Draw()
