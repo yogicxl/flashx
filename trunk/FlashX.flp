@@ -48,6 +48,9 @@
         <project_file path="./FlashX/Math/Quaternion3.as" filetype="as" />
         <project_file path="./FlashX/Math/IQuaternion.as" filetype="as" />
         <project_file path="./FlashX/Math/Quaternion2.as" filetype="as" />
+        <project_file path="./FlashX/Math/QuaternionHelper.as" filetype="as" />
+        <project_file path="./FlashX/Math/VectorHelper.as" filetype="as" />
+        <project_file path="./FlashX/Math/MatrixHelper.as" filetype="as" />
     </project_folder>
     <project_file path="./FlashX.fla" filetype="fla" profile="" />
 </flash_project>

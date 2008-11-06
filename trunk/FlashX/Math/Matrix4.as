@@ -22,6 +22,10 @@
         public var M43:Number;
         public var M44:Number;
 		
+		/*
+		* Constructor
+		*/
+		
 		public function Matrix4(M11:Number = 0, M12:Number = 0, M13:Number = 0, M14:Number = 0,
 								M21:Number = 0, M22:Number = 0, M23:Number = 0, M24:Number = 0,
 								M31:Number = 0, M32:Number = 0, M33:Number = 0, M34:Number = 0,
@@ -33,6 +37,10 @@
 			this.M41 = M41; this.M42 = M42; this.M43 = M43; this.M44 = M44;
 		}
 		
-		static public function get Identity():IMatrix { return new Matrix4(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); }
+		/*
+		* Generate Methods
+		*/
+		
+		public static function get Identity():IMatrix { return new Matrix4(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); }
 	}
 }

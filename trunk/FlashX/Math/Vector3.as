@@ -84,7 +84,7 @@ package FlashX.Math
 		{
 			if(this.changed)
 			{
-				this.length = Math.sqrt((this.X * this.X) + (this.Y * this.Y) + (this.Z * this.Z));
+				this.length = Math.sqrt(this.LengthSquared);
 				
 				this.changed = false;
 			}
@@ -97,26 +97,27 @@ package FlashX.Math
 			return (this.X * this.X) + (this.Y * this.Y) + (this.Z * this.Z);
 		}
 		
-		
 		/*
-		* Premade Vectors
+		* Generate Methods
 		*/
 		
-		static public function get Forward():IVector { return new Vector3(0, 0, 1); }
-		static public function get Backward():IVector { return new Vector3(0, 0, -1); }
+		public static function get Null():IVector { return new Vector3(); }
 		
-		static public function get Up():IVector { return new Vector3(0, 1, 0); }
-		static public function get Down():IVector { return new Vector3(0, -1, 0); }
+		public static function get Forward():IVector { return new Vector3(0, 0, 1); }
+		public static function get Backward():IVector { return new Vector3(0, 0, -1); }
 		
-		static public function get Left():IVector { return new Vector3(-1, 0, 0); }
-		static public function get Right():IVector { return new Vector3(1, 0, 0); }
+		public static function get Up():IVector { return new Vector3(0, 1, 0); }
+		public static function get Down():IVector { return new Vector3(0, -1, 0); }
 		
-		static public function get UnitX():IVector { return new Vector3(1, 0, 0); }
-		static public function get UnitY():IVector { return new Vector3(0, 1, 0); }
-		static public function get UnitZ():IVector { return new Vector3(0, 0, 1); }
+		public static function get Left():IVector { return new Vector3(-1, 0, 0); }
+		public static function get Right():IVector { return new Vector3(1, 0, 0); }
 		
-		static public function get Zero():IVector { return new Vector3(0, 0, 0); }
-		static public function get One():IVector { return new Vector3(1, 1, 1); }
+		public static function get UnitX():IVector { return new Vector3(1, 0, 0); }
+		public static function get UnitY():IVector { return new Vector3(0, 1, 0); }
+		public static function get UnitZ():IVector { return new Vector3(0, 0, 1); }
+		
+		public static function get Zero():IVector { return new Vector3(0, 0, 0); }
+		public static function get One():IVector { return new Vector3(1, 1, 1); }
 
 		/*
 		* Arithmetic Methods
@@ -131,11 +132,6 @@ package FlashX.Math
 			return this;
 		}
 		
-		static public function Add(v1:IVector, v2:IVector):IVector
-		{
-			return new Vector3(v1.X + v2.X, v1.Y + v2.Y, v1.Z + v2.Z);
-		}
-		
 		public function Subtract(v:IVector):IVector
 		{
 			this.X -= v.X;
@@ -143,11 +139,6 @@ package FlashX.Math
 			this.Z -= v.Z;
 			
 			return this;
-		}
-		
-		static public function Subtract(v1:IVector, v2:IVector):IVector
-		{
-			return new Vector3(v1.X - v2.X, v1.Y - v2.Y, v1.Z - v2.Z);
 		}
 		
 		public function Multiply(n:Number):IVector
@@ -159,11 +150,6 @@ package FlashX.Math
 			return this;
 		}
 		
-		static public function Multiply(v:IVector, n:Number):IVector
-		{
-			return new Vector3(v.X * n, v.Y * n, v.Z * n);
-		}
-		
 		public function Divide(n:Number):IVector
 		{
 			this.X /= n;
@@ -173,9 +159,13 @@ package FlashX.Math
 			return this;
 		}
 		
-		static public function Divide(v:IVector, n:Number):IVector
+		public function Invert():IVector
 		{
-			return new Vector3(v.X / n, v.Y / n, v.Z / n);
+			this.X = -this.X;
+			this.Y = -this.Y;
+			this.Z = -this.Z;
+			
+			return this;
 		}
 		
 		public function Normalize():IVector
@@ -186,34 +176,10 @@ package FlashX.Math
 			
 			return this;
 		}
-
-		static public function Normalize(v:IVector):IVector
-		{
-			return new Vector3(v.X / v.Length, v.Y / v.Length, v.Z / v.Length);
-		}
-		
-		public function Invert():IVector
-		{
-			this.X *= -1;
-			this.Y *= -1;
-			this.Z *= -1;
-			
-			return this;
-		}
-		
-		static public function Invert(v:IVector):IVector
-		{
-			return new Vector3(-v.X, -v.Y, -v.Z);
-		}
 		
 		public function Dot(v:IVector):Number
 		{
 			return (this.X * v.X) + (this.Y * v.Y) + (this.Z * v.Z);
-		}
-		
-		static function Dot(v1:IVector, v2:IVector):Number
-		{
-			return (v1.X * v2.X) + (v1.Y * v2.Y) + (v1.Z * v2.Z);
 		}
 		
 		public function Cross(v:IVector):IVector
@@ -224,15 +190,73 @@ package FlashX.Math
 			
 			return this;
 		}
+
+		/*
+		* Trigonometry Methods
+		*/
 		
-		static public function Cross(v1:IVector, v2:IVector):IVector
+		public function Angle(v:IVector):Number
 		{
-			return new Vector3((v1.Y * v2.Z) - (v1.Z * v2.Y), (v1.Z * v2.X) - (v1.X * v2.Z), (v1.X * v2.Y) - (v1.Y * v2.X));
+			return Math.acos(this.Dot(v) / (this.Length * v.Length));
 		}
 		
-		static public function Lerp(v1:IVector, v2:IVector, n:Number):IVector
+		public function Reflect(normal:IVector):IVector
 		{
-			var v:IVector = Vector3.Subtract(v2, v1);
+			var dot:Number = 2 * this.Dot(normal);
+			
+			this.X -= normal.X * dot;
+			this.Y -= normal.Y * dot;
+			this.Z -= normal.Z * dot;
+
+			return this;
+		}
+
+		/*
+		* Basic Methods
+		*/
+		
+		public function Nullify():IVector
+		{
+			this.X = this.Y = this.Z = 0;
+			
+			return this;
+		}
+		
+		public function Equals(v:IVector):Boolean
+		{
+			return (this.X == v.X) && (this.Y == v.Y) && (this.Z == v.Z);
+		}
+		
+		public function Copy(v:IVector):IVector
+		{
+			this.X = v.X;
+			this.Y = v.Y;
+			this.Z = v.Z;
+			
+			return this;
+		}
+		
+		public function Clone():IVector
+		{
+			return new Vector3(this.X, this.Y, this.Z);
+		}
+		
+		public function toString():String
+		{
+			var x:Number = Math.round(this.X * 1000) / 1000;
+			var y:Number = Math.round(this.Y * 1000) / 1000;
+			var z:Number = Math.round(this.Z * 1000) / 1000;
+			
+			return "[Vector3 " + x + ", " + y + ", " + z + " Length: " + this.Length + "]";
+		}
+		
+		/*
+		* Static Methods
+		*/
+		
+		public static function Lerp(v1:IVector, v2:IVector, n:Number):IVector
+		{
+			var v:IVector = VectorHelper.Subtract(v2, v1);
 			
 			v.Multiply(n);
 			v.Add(v1);
@@ -279,109 +303,26 @@ package FlashX.Math
 			return Vector3.Zero;
 		}
 		
-		static public function Distance(v1:IVector, v2:IVector):Number
-		{
-			var v:IVector = Vector3.Subtract(v1, v2);
-			
-			return v.Length;
-		}
-		
-		static public function DistanceSquared(v1:IVector, v2:IVector):Number
-		{
-			var v:IVector = Vector3.Subtract(v1, v2);
-			
-			return v.LengthSquared;
-		}
-		
-		static public function Max(v1:IVector, v2:IVector):IVector
+		public static function Max(v1:IVector, v2:IVector):IVector
 		{
 			return new Vector3(Math.max(v1.X, v2.X), Math.max(v1.Y, v2.Y), Math.max(v1.Z, v2.Z));
 		}
 		
-		static public function Min(v1:IVector, v2:IVector):IVector
+		public static function Min(v1:IVector, v2:IVector):IVector
 		{
 			return new Vector3(Math.min(v1.X, v2.X), Math.min(v1.Y, v2.Y), Math.min(v1.Z, v2.Z));
 		}
 		
-		/*
-		* Trigonometry Methods
-		*/
-		
-		public function Angle(v:IVector):Number
+		public static function Angle(v1:IVector, v2:IVector):Number
 		{
-			return Math.acos(this.Dot(v) / (this.Length * v.Length));
+			return Math.acos(VectorHelper.Dot(v1, v2) / (v1.Length * v2.Length));
 		}
 		
-		static public function Angle(v1:IVector, v2:IVector):Number
+		public static function Reflect(v:IVector, normal:IVector):IVector
 		{
-			return Math.acos(Vector3.Dot(v1, v2) / (v1.Length * v2.Length));
-		}
-		
-		public function Reflect(normal:IVector):IVector
-		{
-			var dot:Number = 2 * this.Dot(normal);
-			
-			this.X -= normal.X * dot;
-			this.Y -= normal.Y * dot;
-			this.Z -= normal.Z * dot;
-
-			return this;
-		}
-		
-		static public function Reflect(v:IVector, normal:IVector):IVector
-		{
-			var dot:Number = 2 * Vector3.Dot(v, normal);
+			var dot:Number = 2 * VectorHelper.Dot(v, normal);
 			
 			return new Vector3(v.X - (normal.X * dot), v.Y - (normal.Y * dot), v.Z - (normal.Z * dot));
-		}
-		
-		/*
-		* Basic Methods
-		*/
-		
-		public function Null():IVector
-		{
-			this.X = this.Y = this.Z = 0;
-			
-			return this;
-		}
-		
-		static public function Null():IVector
-		{
-			return new Vector3();
-		}
-		
-		public function Equals(v:IVector):Boolean
-		{
-			return (this.X == v.X) && (this.Y == v.Y) && (this.Z == v.Z);
-		}
-		
-		static public function Equals(v1:IVector, v2:IVector):Boolean
-		{
-			return (v1.X == v2.X) && (v1.Y == v2.Y) && (v1.Z == v2.Z);
-		}
-
-		public function Copy(v:IVector):IVector
-		{
-			this.X = v.X;
-			this.Y = v.Y;
-			this.Z = v.Z;
-			
-			return this;
-		}
-		
-		public function Clone():IVector
-		{
-			return new Vector3(this.X, this.Y, this.Z);
-		}
-		
-		public function toString():String
-		{
-			var x:Number = Math.round(this.X * 1000) / 1000;
-			var y:Number = Math.round(this.Y * 1000) / 1000;
-			var z:Number = Math.round(this.Z * 1000) / 1000;
-			
-			return "[Vector3 " + x + ", " + y + ", " + z + " Length: " + this.Length + "]";
 		}
 	}
 }

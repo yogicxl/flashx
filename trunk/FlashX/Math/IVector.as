@@ -54,19 +54,19 @@
 		function Angle(v:IVector):Number;
 		
 		function Reflect(normal:IVector):IVector;
-		
+
 		/*
 		* Basic Methods
 		*/
 		
-		function Null():IVector;
+		function Nullify():IVector;
 		
 		function Equals(v:IVector):Boolean;
 		
 		function Copy(v:IVector):IVector;
 		
 		function Clone():IVector;
-		
+
 		function toString():String;
 	}
 }

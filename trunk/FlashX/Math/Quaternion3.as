@@ -64,39 +64,43 @@
 		}
 		
 		/*
-		* Static Methods
+		* Generate Methods
 		*/
 		
-		static public function get Identity():IQuaternion { return new Quaternion3(); }
+		public static function get Identity():IQuaternion { return new Quaternion3(); }
 		
-		public static function Add(q1:IQuaternion, q2:IQuaternion):IQuaternion
-		{
-			return new Quaternion3(q1.X + q2.X, q1.Y + q2.Y, q1.Z + q2.Z, q1.W + q2.W);      
-		}
 		
-		public static function Subtract(q1:IQuaternion, q2:IQuaternion):IQuaternion
-		{
-			return new Quaternion3(q1.X - q2.X, q1.Y - q2.Y, q1.Z - q2.Z, q1.W - q2.W);      
-		}
+		/*
+		* Arithmetic Methods
+		*/
 		
-		public static function Multiply(q1:IQuaternion, q2:IQuaternion):IQuaternion
+		public function Add(q:IQuaternion):IQuaternion
 		{
-			var q:IQuaternion = new Quaternion3();
+			this.X += q.X;
+			this.Y += q.Y;
+			this.Z += q.Z;
+			this.W += q.W;
 			
-			q.X = (q1.W * q2.X) + (q1.X * q2.W) + (q1.Y * q2.Z) - (q1.Z * q2.Y);
-			q.Y = (q1.W * q2.Y) - (q1.X * q2.Z) + (q1.Y * q2.W) + (q1.Z * q2.X);
-			q.Z = (q1.W * q2.Z) + (q1.X * q2.Y) - (q1.Y * q2.X) + (q1.Z * q2.W);
-			q.W = (q1.W * q2.W) - (q1.X * q2.X) - (q1.Y * q2.Y) - (q1.Z * q2.Z);
-			
-			return q;
+			return this;     
 		}
 		
-		public function Multiply(q:IQuaternion):void
+		public function Subtract(q:IQuaternion):IQuaternion
 		{
-			this.MultiplyQuaternion(q);
+			this.X -= q.X;
+			this.Y -= q.Y;
+			this.Z -= q.Z;
+			this.W -= q.W;
+			
+			return this;      
 		}
 		
-		public function MultiplyQuaternion(q1:IQuaternion):void
+		public function Multiply(q:IQuaternion):IQuaternion
+		{
+			return this.MultiplyQuaternion(q);
+		}
+		
+		
+		public function MultiplyQuaternion(q1:IQuaternion):IQuaternion
 		{
 			var q2:IQuaternion = this.Clone();
 			
@@ -104,46 +108,28 @@
 			this.Y = (q1.W * q2.Y) - (q1.X * q2.Z) + (q1.Y * q2.W) + (q1.Z * q2.X);
 			this.Z = (q1.W * q2.Z) + (q1.X * q2.Y) - (q1.Y * q2.X) + (q1.Z * q2.W);
 			this.W = (q1.W * q2.W) - (q1.X * q2.X) - (q1.Y * q2.Y) - (q1.Z * q2.Z);
-		}
-
-		public function MultiplyVector(q:IQuaternion, v:IVector):void
-		{
-			
-		}
-		
-		public static function Dot(q1:IQuaternion, q2:IQuaternion):Number
-		{
-			return (q1.X * q2.X) + (q1.Y * q2.Y) + (q1.Z * q2.Z) + (q1.W * q2.W);
-		}
-		
-
-		/*
-		* Basic Methods
-		*/
-		
-		public function Null():IQuaternion
-		{
-			this.X = this.Y = this.Z = 0;
-			this.W = 1;
 			
 			return this;
 		}
 		
-		static public function Null():IQuaternion
+		public function MultiplyVector(v:IVector):IQuaternion
 		{
-			return new Quaternion3();
+			return this;
 		}
 		
-		public function Equals(q:IQuaternion):Boolean
+		public function Dot(q:IQuaternion):Number
 		{
-			return (this.X == q.X) && (this.Y == q.Y) && (this.Y == q.Y) && (this.W == q.W);
+			return (this.X * q.X) + (this.Y * q.Y) + (this.Z * q.Z) + (this.W * q.W);
 		}
 		
-		static public function Equals(q1:IQuaternion, q2:IQuaternion):Boolean
-		{
-			return (q1.X == q2.X) && (q1.Y == q2.Y) && (q1.Y == q2.Y) && (q1.W == q2.W);
-		}
-
+		/*
+		* Trigonometry Methods
+		*/
+		
+		/*
+		* Basic Methods
+		*/
+		
 		public function Copy(q:IQuaternion):IQuaternion
 		{
 			this.X = q.X;
@@ -152,6 +138,19 @@
 			this.W = q.W;
 			
 			return this;
+		}
+		
+		public function Null():IQuaternion
+		{
+			this.X = this.Y = this.Z = 0;
+			this.W = 1;
+			
+			return this;
+		}
+	
+		public function Equals(q:IQuaternion):Boolean
+		{
+			return (this.X == q.X) && (this.Y == q.Y) && (this.Y == q.Y) && (this.W == q.W);
 		}
 		
 		public function Clone():IQuaternion
@@ -166,7 +165,58 @@
 			var z:Number = Math.round(this.Z * 1000) / 1000;
 			var w:Number = Math.round(this.W * 1000) / 1000;
 			
-			return "[Quaternion3 " + x + ", " + y + ", " + z + " w: " + w + "]";
+			return "[Quaternion3 " + x + ", " + y + ", " + z + " W: " + w + "]";
+		}
+		
+		/*
+		* Static Methods
+		*/
+		
+		public static function Add(q1:IQuaternion, q2:IQuaternion):IQuaternion
+		{
+			return q1.Clone().Add(q2);
+		}
+		
+		public static function Subtract(q1:IQuaternion, q2:IQuaternion):IQuaternion
+		{
+			return q1.Clone().Subtract(q2);
+		}
+		
+		public static function Multiply(q1:IQuaternion, q2:IQuaternion):IQuaternion
+		{
+			return q1.MultiplyQuaternion(q2);
+		}
+		
+		public static function MultiplyQuaternion(q1:IQuaternion, q2:IQuaternion):IQuaternion
+		{
+			var q:IQuaternion = q1.Clone();
+			
+			return q.MultiplyQuaternion(q2);
+		}
+		
+		public static function MultiplyVector(q:IQuaternion, v:IVector):IQuaternion
+		{
+			return q.Clone().MultiplyVector(v);
+		}
+		
+		public static function Dot(q1:IQuaternion, q2:IQuaternion):Number
+		{
+			return q1.Dot(q2);
+		}
+		
+		public static function Copy(q1:IQuaternion, q2:IQuaternion):IQuaternion
+		{
+			return q1.Copy(q2);
+		}
+		
+		public static function Null():IQuaternion
+		{
+			return new Quaternion3();
+		}
+		
+		public static function Equals(q1:IQuaternion, q2:IQuaternion):Boolean
+		{
+			return q1.Equals(q2);
 		}
 	}
 }

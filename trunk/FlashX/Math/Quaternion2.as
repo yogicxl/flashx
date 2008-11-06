@@ -62,6 +62,18 @@
 		}
 		
 		/*
+		* Generate Methods
+		*/
+		
+		/*
+		* Arithmetic Methods
+		*/
+		
+		/*
+		* Trigonometry Methods
+		*/
+		
+		/*
 		* Basic Methods
 		*/
 		
@@ -73,5 +85,9 @@
 			
 			return "[Quaternion2 " + x + ", " + y + ", " + z + "]";
 		}
+		
+		/*
+		* Static Methods
+		*/
 	}
 }
