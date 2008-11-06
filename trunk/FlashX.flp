@@ -17,14 +17,14 @@
             <project_file path="./FlashX/Graphics/Sprites/Sprite2D.as" filetype="as" />
             <project_file path="./FlashX/Graphics/Sprites/Sprite3D.as" filetype="as" />
         </project_folder>
-        <project_file path="./FlashX/Graphics/Camera.as" filetype="as" />
-        <project_file path="./FlashX/Graphics/Component.as" filetype="as" />
-        <project_file path="./FlashX/Graphics/Disposable.as" filetype="as" />
-        <project_file path="./FlashX/Graphics/Drawable.as" filetype="as" />
-        <project_file path="./FlashX/Graphics/Lighting.as" filetype="as" />
         <project_file path="./FlashX/Graphics/Model.as" filetype="as" />
-        <project_file path="./FlashX/Graphics/Sprite.as" filetype="as" />
-        <project_file path="./FlashX/Graphics/Updateable.as" filetype="as" />
+        <project_file path="./FlashX/Graphics/ICamera.as" filetype="as" />
+        <project_file path="./FlashX/Graphics/IComponent.as" filetype="as" />
+        <project_file path="./FlashX/Graphics/IDisposable.as" filetype="as" />
+        <project_file path="./FlashX/Graphics/IDrawable.as" filetype="as" />
+        <project_file path="./FlashX/Graphics/ILighting.as" filetype="as" />
+        <project_file path="./FlashX/Graphics/ISprite.as" filetype="as" />
+        <project_file path="./FlashX/Graphics/IUpdateable.as" filetype="as" />
     </project_folder>
     <project_folder name="Sound" expanded="false">
     </project_folder>
@@ -34,17 +34,19 @@
     </project_folder>
     <project_folder name="Input" expanded="false">
     </project_folder>
-    <project_folder name="Core" expanded="false">
+    <project_folder name="Core" expanded="true">
+        <project_file path="./FlashX/Core/Abstract.as" filetype="as" />
     </project_folder>
     <project_folder name="Math" expanded="true">
         <project_file path="./FlashX/Math/MathHelper.as" filetype="as" />
         <project_file path="./FlashX/Math/Matrix3.as" filetype="as" />
         <project_file path="./FlashX/Math/Matrix4.as" filetype="as" />
-        <project_file path="./FlashX/Math/Matrix.as" filetype="as" />
-        <project_file path="./FlashX/Math/Quaternion.as" filetype="as" />
         <project_file path="./FlashX/Math/Vector2.as" filetype="as" />
         <project_file path="./FlashX/Math/Vector3.as" filetype="as" />
-        <project_file path="./FlashX/Math/Vector.as" filetype="as" />
+        <project_file path="./FlashX/Math/IMatrix.as" filetype="as" />
+        <project_file path="./FlashX/Math/IVector.as" filetype="as" />
+        <project_file path="./FlashX/Math/Quaternion3.as" filetype="as" />
+        <project_file path="./FlashX/Math/IQuaternion.as" filetype="as" />
     </project_folder>
     <project_file path="./FlashX.fla" filetype="fla" profile="" />
 </flash_project>
