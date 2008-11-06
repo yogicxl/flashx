@@ -4,9 +4,9 @@
 	
 	import FlashX.Core.Abstract;
 	
-	import FlashX.Mathematics.Vector;
-	import FlashX.Mathematics.Matrix;
-	import FlashX.Mathematics.Quaternion;
+	import FlashX.Math.Vector;
+	import FlashX.Math.Matrix;
+	import FlashX.Math.Quaternion;
 	
 	public class BasicSprite extends Abstract implements Sprite
 	{

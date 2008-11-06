@@ -1,11 +1,11 @@
 ﻿package FlashX.Graphics.Cameras
 {
-	import FlashX.Mathematics.Vector;
-	import FlashX.Mathematics.Matrix;
-	import FlashX.Mathematics.Quaternion;
+	import FlashX.Math.Vector;
+	import FlashX.Math.Matrix;
+	import FlashX.Math.Quaternion;
 	
-	import FlashX.Mathematics.Vector3;
-	import FlashX.Mathematics.Matrix4;
+	import FlashX.Math.Vector3;
+	import FlashX.Math.Matrix4;
 	
 	public class FreeCamera extends BasicCamera
 	{

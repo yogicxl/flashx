@@ -4,9 +4,9 @@
 	
 	import FlashX.Core.Abstract;
 	
-	import FlashX.Mathematics.Matrix;
-	import FlashX.Mathematics.Vector;
-	import FlashX.Mathematics.Quaternion;
+	import FlashX.Math.Matrix;
+	import FlashX.Math.Vector;
+	import FlashX.Math.Quaternion;
 
 	public class BasicCamera extends Abstract implements Camera
 	{

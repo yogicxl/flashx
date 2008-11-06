@@ -1,4 +1,4 @@
-﻿package FlashX.Mathematics
+﻿package FlashX.Math
 {
 	public class Matrix4 implements Matrix
 	{

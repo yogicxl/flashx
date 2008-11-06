@@ -1,8 +1,8 @@
 ﻿package FlashX.Graphics.Sprites
 {
-	import FlashX.Mathematics.Vector3;
-	import FlashX.Mathematics.Matrix4;
-	import FlashX.Mathematics.Quaternion;
+	import FlashX.Math.Vector3;
+	import FlashX.Math.Matrix4;
+	import FlashX.Math.Quaternion;
 	
 	public class Sprite3D extends BasicSprite
 	{

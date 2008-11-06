@@ -4,8 +4,8 @@
 	
 	import FlashX.Core.Abstract;
 	
-	import FlashX.Mathematics.Vector;
-	import FlashX.Mathematics.Quaternion;
+	import FlashX.Math.Vector;
+	import FlashX.Math.Quaternion;
 	
 	public class BasicComponent extends Abstract implements Component
 	{

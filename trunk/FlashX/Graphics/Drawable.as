@@ -1,7 +1,7 @@
 ﻿package FlashX.Graphics
 {
-	import FlashX.Mathematics.Vector;
-	import FlashX.Mathematics.Quaternion;
+	import FlashX.Math.Vector;
+	import FlashX.Math.Quaternion;
 	
 	public interface Drawable
 	{

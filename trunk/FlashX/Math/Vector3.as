@@ -5,7 +5,7 @@
 // subtract
 
 
-package FlashX.Mathematics
+package FlashX.Math
 {
 	public class Vector3 extends Object implements Vector
 	{

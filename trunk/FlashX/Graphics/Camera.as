@@ -1,6 +1,6 @@
 ﻿package FlashX.Graphics
 {
-	import FlashX.Mathematics.Matrix;
+	import FlashX.Math.Matrix;
 	
 	public interface Camera extends Component
 	{

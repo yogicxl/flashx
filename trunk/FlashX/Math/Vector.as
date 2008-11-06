@@ -1,4 +1,4 @@
-﻿package FlashX.Mathematics
+﻿package FlashX.Math
 {
 	/*
 	* Implicit casting between Vector2 and Vector3. Strict usage.
