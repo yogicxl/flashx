@@ -1,5 +1,6 @@
 ﻿package FlashX.Graphics
 {
+	import FlashX.Core.*;
 	import FlashX.Math.*;
 	
 	public interface ISprite extends IComponent

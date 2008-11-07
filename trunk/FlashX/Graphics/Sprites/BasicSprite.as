@@ -1,7 +1,6 @@
 ﻿package FlashX.Graphics.Sprites
 {
-	import FlashX.Core.Abstract;
-	
+	import FlashX.Core.*;
 	import FlashX.Math.*;
 	import FlashX.Graphics.*;
 	
@@ -127,24 +126,12 @@
 		* Methods
 		*/
 		
-		public function Initialize():void
-		{
-			
-		}
+		public function Initialize():void {}
 		
-		public function Update():void
-		{
-			
-		}
+		public function Update(time:Time):void {}
 		
-		public function Draw():void
-		{
-			
-		}
+		public function Draw(device:GraphicsDevice):void {}
 		
-		public function Dispose():void
-		{
-			
-		}
+		public function Dispose():void {}
 	}
 }

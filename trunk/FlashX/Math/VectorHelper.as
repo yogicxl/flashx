@@ -29,6 +29,11 @@
 			return v.Clone().Normalize();
 		}
 		
+		public static function Negate(v:IVector):IVector
+		{
+			return v.Clone().Negate();
+		}
+		
 		public static function Invert(v:IVector):IVector
 		{
 			return v.Clone().Invert();

@@ -1,6 +1,8 @@
 ﻿package FlashX.Graphics.Cameras
 {
-	import FlashX.Math.*
+	import FlashX.Core.*;
+	import FlashX.Math.*;
+	import FlashX.Graphics.*;
 	
 	public class FreeCamera extends BasicCamera
 	{
@@ -27,14 +29,14 @@
 			super.Initialize();
 		}
 
-		public override function Update():void
+		public override function Update(time:Time):void
 		{
-			super.Update();
+			super.Update(time);
 		}
 
-		public override function Draw():void
+		public override function Draw(device:GraphicsDevice):void
 		{
-			super.Draw();
+			super.Draw(device);
 		}
 		
 		public override function Dispose():void

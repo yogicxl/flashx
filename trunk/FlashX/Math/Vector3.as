@@ -159,11 +159,19 @@ package FlashX.Math
 			return this;
 		}
 		
-		public function Invert():IVector
+		public function Negate():IVector
 		{
 			this.X = -this.X;
 			this.Y = -this.Y;
 			this.Z = -this.Z;
+			
+			return this;
+		}
+		
+		public function Invert():IVector
+		{
+			this.X = this.Z;
+			this.Z = this.X;
 			
 			return this;
 		}
@@ -209,6 +217,12 @@ package FlashX.Math
 			this.Z -= normal.Z * dot;
 
 			return this;
+		}
+		
+		// beta
+		public function TransformMatrix(m:IMatrix):IVector
+		{
+			return Vector3.Zero;
 		}
 
 		/*

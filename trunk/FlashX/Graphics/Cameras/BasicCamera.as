@@ -1,7 +1,6 @@
 ﻿package FlashX.Graphics.Cameras
 {
-	import FlashX.Core.Abstract;
-	
+	import FlashX.Core.*;
 	import FlashX.Math.*;
 	import FlashX.Graphics.*;
 
@@ -84,9 +83,9 @@
 		
 		public function Initialize():void {}
 		
-		public function Update():void {}
+		public function Update(time:Time):void {}
 
-		public function Draw():void {}
+		public function Draw(device:GraphicsDevice):void {}
 		
 		public function Dispose():void {}
 	}

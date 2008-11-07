@@ -1,6 +1,7 @@
-﻿package FlashX.Graphics
+﻿package FlashX.Core
 {
 	import FlashX.Math.*;
+	import FlashX.Graphics.*;
 	
 	public interface IDrawable
 	{
@@ -13,6 +14,6 @@
 		function get Direction():IQuaternion;
 		function set Direction(rotation:IQuaternion):void;
 		
-		function Draw():void;
+		function Draw(device:GraphicsDevice):void;
 	}
 }

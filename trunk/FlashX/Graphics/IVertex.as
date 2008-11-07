@@ -1,7 +1,7 @@
 ﻿package FlashX.Graphics
 {
-	public interface IDisposable
+	public interface IVertex
 	{
-		
+
 	}
 }

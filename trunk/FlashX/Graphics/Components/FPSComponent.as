@@ -6,6 +6,9 @@
 	import flash.utils.getTimer;
 	import flash.events.Event;
 	
+	import FlashX.Core.*;
+	import FlashX.Graphics.*;
+	
 	public class FPSComponent extends BasicComponent
 	{
 		private var frames:Number;
@@ -41,14 +44,14 @@
 			
 		}
 
-		public override function Update():void
+		public override function Update(time:Time):void
 		{
 			++this.frames;
 
 			this.now = getTimer();
 		}
 
-		public override function Draw():void
+		public override function Draw(device:GraphicsDevice):void
 		{
 			if((this.now - this.before) > this.delay)
 			{

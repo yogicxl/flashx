@@ -132,10 +132,18 @@ package FlashX.Math
 			return this;
 		}
 		
-		public function Invert():IVector
+		public function Negate():IVector
 		{
 			this.X = -this.X;
 			this.Y = -this.Y;
+			
+			return this;
+		}
+		
+		public function Invert():IVector
+		{
+			this.X = this.Y;
+			this.Y = this.X;
 			
 			return this;
 		}

@@ -1,4 +1,4 @@
-﻿package FlashX.Graphics
+﻿package FlashX.Core
 {
 	public interface IComponent extends IDrawable, IUpdateable, IDisposable
 	{

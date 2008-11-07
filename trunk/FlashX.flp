@@ -5,10 +5,6 @@
             <project_file path="./FlashX/Graphics/Cameras/FreeCamera.as" filetype="as" />
             <project_file path="./FlashX/Graphics/Cameras/QuakeCamera.as" filetype="as" />
         </project_folder>
-        <project_folder name="Components" expanded="true">
-            <project_file path="./FlashX/Graphics/Components/BasicComponent.as" filetype="as" />
-            <project_file path="./FlashX/Graphics/Components/FPSComponent.as" filetype="as" />
-        </project_folder>
         <project_folder name="Lighting" expanded="true">
             <project_file path="./FlashX/Graphics/Lighting/BasicLighting.as" filetype="as" />
         </project_folder>
@@ -17,14 +13,32 @@
             <project_file path="./FlashX/Graphics/Sprites/Sprite2D.as" filetype="as" />
             <project_file path="./FlashX/Graphics/Sprites/Sprite3D.as" filetype="as" />
         </project_folder>
+        <project_folder name="Primitives" expanded="true">
+            <project_file path="./FlashX/Graphics/Primitives/TriangleFan.as" filetype="as" />
+            <project_file path="./FlashX/Graphics/Primitives/LineList.as" filetype="as" />
+            <project_file path="./FlashX/Graphics/Primitives/LineStripe.as" filetype="as" />
+            <project_file path="./FlashX/Graphics/Primitives/PointList.as" filetype="as" />
+            <project_file path="./FlashX/Graphics/Primitives/TriangleList.as" filetype="as" />
+            <project_file path="./FlashX/Graphics/Primitives/TriangleStripe.as" filetype="as" />
+        </project_folder>
+        <project_folder name="Models" expanded="false">
+        </project_folder>
+        <project_folder name="Vertices" expanded="true">
+            <project_file path="./FlashX/Graphics/Vertices/BasicVertex.as" filetype="as" />
+            <project_file path="./FlashX/Graphics/Vertices/ColorVertex.as" filetype="as" />
+            <project_file path="./FlashX/Graphics/Vertices/TextureVertex.as" filetype="as" />
+        </project_folder>
+        <project_folder name="Components" expanded="true">
+            <project_file path="./FlashX/Graphics/Components/BasicComponent.as" filetype="as" />
+            <project_file path="./FlashX/Graphics/Components/FPSComponent.as" filetype="as" />
+        </project_folder>
         <project_file path="./FlashX/Graphics/ICamera.as" filetype="as" />
-        <project_file path="./FlashX/Graphics/IComponent.as" filetype="as" />
-        <project_file path="./FlashX/Graphics/IDisposable.as" filetype="as" />
-        <project_file path="./FlashX/Graphics/IDrawable.as" filetype="as" />
         <project_file path="./FlashX/Graphics/ILighting.as" filetype="as" />
         <project_file path="./FlashX/Graphics/ISprite.as" filetype="as" />
-        <project_file path="./FlashX/Graphics/IUpdateable.as" filetype="as" />
         <project_file path="./FlashX/Graphics/IModel.as" filetype="as" />
+        <project_file path="./FlashX/Graphics/IPrimitive.as" filetype="as" />
+        <project_file path="./FlashX/Graphics/IVertex.as" filetype="as" />
+        <project_file path="./FlashX/Graphics/GraphicsDevice.as" filetype="as" />
     </project_folder>
     <project_folder name="Sound" expanded="false">
     </project_folder>
@@ -36,6 +50,12 @@
     </project_folder>
     <project_folder name="Core" expanded="true">
         <project_file path="./FlashX/Core/Abstract.as" filetype="as" />
+        <project_file path="./FlashX/Core/IComponent.as" filetype="as" />
+        <project_file path="./FlashX/Core/IDisposable.as" filetype="as" />
+        <project_file path="./FlashX/Core/IDrawable.as" filetype="as" />
+        <project_file path="./FlashX/Core/IUpdateable.as" filetype="as" />
+        <project_file path="./FlashX/Core/Time.as" filetype="as" />
+        <project_file path="./FlashX/Core/TimeHandler.as" filetype="as" />
     </project_folder>
     <project_folder name="Math" expanded="true">
         <project_file path="./FlashX/Math/MathHelper.as" filetype="as" />
@@ -51,6 +71,9 @@
         <project_file path="./FlashX/Math/QuaternionHelper.as" filetype="as" />
         <project_file path="./FlashX/Math/VectorHelper.as" filetype="as" />
         <project_file path="./FlashX/Math/MatrixHelper.as" filetype="as" />
+    </project_folder>
+    <project_folder name="Content" expanded="true">
+        <project_file path="./FlashX/Content/ContentManager.as" filetype="as" />
     </project_folder>
     <project_file path="./FlashX.fla" filetype="fla" profile="" />
 </flash_project>

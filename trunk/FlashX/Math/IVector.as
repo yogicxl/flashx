@@ -43,6 +43,8 @@
 		
 		function Invert():IVector;
 		
+		function Negate():IVector;
+		
 		function Dot(v:IVector):Number;
 		
 		function Cross(v:IVector):IVector;
