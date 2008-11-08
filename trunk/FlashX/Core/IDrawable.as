@@ -5,14 +5,14 @@
 	
 	public interface IDrawable
 	{
-		function get Position():IVector;
-		function set Position(position:IVector):void;
+		function get World():IMatrix;
+		function set World(world:IMatrix):void;
 		
-		function get Rotation():IVector;
-		function set Rotation(rotation:IVector):void;
+		function get View():IMatrix;
+		function set View(view:IMatrix):void;
 		
-		function get Direction():IQuaternion;
-		function set Direction(rotation:IQuaternion):void;
+		function get Projection():IMatrix;
+		function set Projection(projection:IMatrix):void;
 		
 		function Draw(device:GraphicsDevice):void;
 	}

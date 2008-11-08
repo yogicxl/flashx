@@ -1,11 +1,13 @@
-﻿package FlashX.Graphics.Sprites
+﻿package FlashX.Graphics.Models
 {
 	import FlashX.Core.*;
 	import FlashX.Math.*;
 	import FlashX.Graphics.*;
 	
-	public class BasicSprite extends Abstract implements ISprite
+	public class BasicModel extends Abstract implements IModel
 	{
+		private var primitives:Array;
+		
 		private var position:IVector;
 		private var rotation:IVector;
 		private var direction:IQuaternion;
@@ -22,6 +24,22 @@
 		/*
 		* Properties
 		*/
+		
+
+		
+		/*
+		* Model Properties
+		*/
+		
+		public function get Primitives():Array
+		{
+			return this.primitives;
+		}
+		
+		public function set Primitives(primitives:Array):void
+		{
+			this.primitives = primitives;
+		}
 		
 		public function get Visible():Boolean
 		{

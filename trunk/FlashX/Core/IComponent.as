@@ -1,10 +1,11 @@
 ﻿package FlashX.Core
 {
-	public interface IComponent extends IDrawable, IUpdateable, IDisposable
+	public interface IComponent extends IUpdateable, IDisposable
 	{
 		/*
 		* Properties
 		*/
+		
 		function get Visible():Boolean;
 		function set Visible(visible:Boolean):void;
 		

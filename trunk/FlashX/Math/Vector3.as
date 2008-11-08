@@ -257,11 +257,7 @@ package FlashX.Math
 		
 		public function toString():String
 		{
-			var x:Number = Math.round(this.X * 1000) / 1000;
-			var y:Number = Math.round(this.Y * 1000) / 1000;
-			var z:Number = Math.round(this.Z * 1000) / 1000;
-			
-			return "[Vector3 " + x + ", " + y + ", " + z + " Length: " + this.Length + "]";
+			return "[Vector3 " + this.X + ", " + this.Y + ", " + this.Z + " Length: " + this.Length + "]";
 		}
 		
 		/*

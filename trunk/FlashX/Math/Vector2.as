@@ -6,7 +6,7 @@
 
 package FlashX.Math
 {
-	public class Vector2 extends BasicVector
+	public class Vector2 implements IVector
 	{
 		private var x:int;
 		private var y:int;
@@ -27,7 +27,7 @@ package FlashX.Math
 		* Properties
 		*/
 		
-		public override function set X(x:int):void 
+		public function set X(x:int):void 
 		{
 			if(this.x != x)
 				this.changed = true;
@@ -35,12 +35,12 @@ package FlashX.Math
 			this.x = x;
 		}
 		
-		public override function get X():int
+		public function get X():int
 		{
 			return this.x;
 		}
 		
-		public override function set Y(y:int):void 
+		public function set Y(y:int):void 
 		{
 			if(this.y != y)
 				this.changed = true;
@@ -48,12 +48,15 @@ package FlashX.Math
 			this.y = y;
 		}
 		
-		public override function get Y():int
+		public function get Y():int
 		{
 			return this.y;
 		}
 		
-
+		public function set Z(z:int):void  { }
+		
+		public function get Z():int { return 0; }
+		
 		public function set Length(length:Number):void 
 		{
 			this.Divide(this.Length / length);
@@ -148,11 +151,23 @@ package FlashX.Math
 			return this;
 		}
 		
+		public function Cross(v1:IVector):IVector
+		{
+			var v2:IVector = this.Clone();
+
+			v2.X = this.Y;
+			v2.Y = -this.X;
+			
+			this.Copy(v2);
+			
+			return this;
+		}
+		
 		public function Normalize():IVector
 		{
 			this.Divide(this.Length);
 			
-			this.Length = 1;
+			//this.Length = 1;
 			
 			return this;
 		}
@@ -160,14 +175,6 @@ package FlashX.Math
 		public function Dot(v:IVector):Number
 		{
 			return (this.X * v.X) + (this.Y * v.Y);
-		}
-		
-		public function Cross(v:IVector):IVector
-		{
-			this.X = (this.Y * v.Z) - (this.Z * v.Y);
-			this.Y = (this.Z * v.X) - (this.X * v.Z);
-			
-			return this;
 		}
 		
 		/*
@@ -220,9 +227,7 @@ package FlashX.Math
 		
 		public function toString():String
 		{
-			var x:Number = Math.round(this.X * 1000) / 1000;
-			var y:Number = Math.round(this.Y * 1000) / 1000;
-			
-			return "[Vector2 " + x + ", " + y + " Length: " + this.Length + "]";
+			return "[Vector2 " + this.X + ", " + this.Y + " Length: " + this.Length + "]";
 		}
+	}
 }

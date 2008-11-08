@@ -69,6 +69,7 @@
 		
 		public static function get Identity():IQuaternion { return new Quaternion3(); }
 		
+		public static function get Null():IQuaternion { return new Quaternion3(); }
 		
 		/*
 		* Arithmetic Methods
@@ -160,12 +161,7 @@
 		
 		public function toString():String
 		{
-			var x:Number = Math.round(this.X * 1000) / 1000;
-			var y:Number = Math.round(this.Y * 1000) / 1000;
-			var z:Number = Math.round(this.Z * 1000) / 1000;
-			var w:Number = Math.round(this.W * 1000) / 1000;
-			
-			return "[Quaternion3 " + x + ", " + y + ", " + z + " W: " + w + "]";
+			return "[Quaternion3 " + this.X + ", " + this.Y + ", " + this.Z + " W: " + this.W + "]";
 		}
 		
 		/*
@@ -207,11 +203,6 @@
 		public static function Copy(q1:IQuaternion, q2:IQuaternion):IQuaternion
 		{
 			return q1.Copy(q2);
-		}
-		
-		public static function Null():IQuaternion
-		{
-			return new Quaternion3();
 		}
 		
 		public static function Equals(q1:IQuaternion, q2:IQuaternion):Boolean

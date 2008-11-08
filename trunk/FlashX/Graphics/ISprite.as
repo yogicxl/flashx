@@ -5,14 +5,14 @@
 	
 	public interface ISprite extends IComponent
 	{
-		function get World():IMatrix;
-		function set World(world:IMatrix):void;
+		function get Position():IVector;
+		function set Position(position:IVector):void;
 		
-		function get View():IMatrix;
-		function set View(view:IMatrix):void;
+		function get Rotation():IVector;
+		function set Rotation(rotation:IVector):void;
 		
-		function get Projection():IMatrix;
-		function set Projection(projection:IMatrix):void;
+		function get Direction():IQuaternion;
+		function set Direction(rotation:IQuaternion):void;
 		
 		function get Camera():ICamera;
 		function set Camera(camera:ICamera):void;

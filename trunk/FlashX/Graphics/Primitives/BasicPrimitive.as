@@ -1,30 +1,18 @@
-﻿package FlashX.Graphics.Components
+﻿package FlashX.Graphics.Primitives
 {
 	import FlashX.Core.*;
 	import FlashX.Math.*;
 	import FlashX.Graphics.*;
 	
-	public class BasicComponent extends Abstract implements IDrawableComponent
+	public class BasicPrimitive extends Abstract implements IPrimitive
 	{
+		protected var vertices:Array;
+		protected var indices:Array;
+
 		private var world:IMatrix;
 		private var view:IMatrix;
 		private var projection:IMatrix;
 		
-		private var visible:Boolean;
-		
-		/*
-		* Properties
-		*/
-		
-		public function get Visible():Boolean
-		{
-			return this.visible;
-		}
-		
-		public function set Visible(visible:Boolean):void
-		{
-			this.visible = visible;
-		}
 		
 		/*
 		* Drawable Properties
@@ -59,17 +47,25 @@
 		{
 			this.projection = projection;
 		}
-		
+
 		/*
-		* Methods
+		* Primitive Properties
 		*/
 		
-		public function Initialize():void {}
+		public function get Vertices():Array
+		{
+			return this.vertices;
+		}
 		
-		public function Update(time:Time):void {}
-
+		public function get Indices():Array
+		{
+			return this.indices;
+		}
+		
+		/*
+		* Abstract Methods
+		*/
+		
 		public function Draw(device:GraphicsDevice):void {}
-		
-		public function Dispose():void {}
 	}
 }

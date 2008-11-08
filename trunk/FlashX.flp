@@ -10,18 +10,18 @@
         </project_folder>
         <project_folder name="Sprites" expanded="true">
             <project_file path="./FlashX/Graphics/Sprites/BasicSprite.as" filetype="as" />
-            <project_file path="./FlashX/Graphics/Sprites/Sprite2D.as" filetype="as" />
-            <project_file path="./FlashX/Graphics/Sprites/Sprite3D.as" filetype="as" />
+            <project_file path="./FlashX/Graphics/Sprites/Circle.as" filetype="as" />
+            <project_file path="./FlashX/Graphics/Sprites/Rectangle.as" filetype="as" />
+            <project_file path="./FlashX/Graphics/Sprites/Triangle.as" filetype="as" />
         </project_folder>
         <project_folder name="Primitives" expanded="true">
             <project_file path="./FlashX/Graphics/Primitives/TriangleFan.as" filetype="as" />
             <project_file path="./FlashX/Graphics/Primitives/LineList.as" filetype="as" />
-            <project_file path="./FlashX/Graphics/Primitives/LineStripe.as" filetype="as" />
             <project_file path="./FlashX/Graphics/Primitives/PointList.as" filetype="as" />
             <project_file path="./FlashX/Graphics/Primitives/TriangleList.as" filetype="as" />
             <project_file path="./FlashX/Graphics/Primitives/TriangleStripe.as" filetype="as" />
-        </project_folder>
-        <project_folder name="Models" expanded="false">
+            <project_file path="./FlashX/Graphics/Primitives/LineStrip.as" filetype="as" />
+            <project_file path="./FlashX/Graphics/Primitives/BasicPrimitive.as" filetype="as" />
         </project_folder>
         <project_folder name="Vertices" expanded="true">
             <project_file path="./FlashX/Graphics/Vertices/BasicVertex.as" filetype="as" />
@@ -32,6 +32,22 @@
             <project_file path="./FlashX/Graphics/Components/BasicComponent.as" filetype="as" />
             <project_file path="./FlashX/Graphics/Components/FPSComponent.as" filetype="as" />
         </project_folder>
+        <project_folder name="Models" expanded="true">
+            <project_file path="./FlashX/Graphics/Models/BasicModel.as" filetype="as" />
+            <project_file path="./FlashX/Graphics/Models/Sphere.as" filetype="as" />
+            <project_file path="./FlashX/Graphics/Models/Cube.as" filetype="as" />
+            <project_file path="./FlashX/Graphics/Models/Pyramid.as" filetype="as" />
+            <project_file path="./FlashX/Graphics/Models/CustomModel.as" filetype="as" />
+        </project_folder>
+        <project_folder name="Renderers" expanded="true">
+            <project_file path="./FlashX/Graphics/Renderers/BasicRenderer.as" filetype="as" />
+            <project_file path="./FlashX/Graphics/Renderers/LineListRenderer.as" filetype="as" />
+            <project_file path="./FlashX/Graphics/Renderers/LineStripRenderer.as" filetype="as" />
+            <project_file path="./FlashX/Graphics/Renderers/PointListRenderer.as" filetype="as" />
+            <project_file path="./FlashX/Graphics/Renderers/TriangleFanRenderer.as" filetype="as" />
+            <project_file path="./FlashX/Graphics/Renderers/TriangleListRenderer.as" filetype="as" />
+            <project_file path="./FlashX/Graphics/Renderers/TriangleStripRenderer.as" filetype="as" />
+        </project_folder>
         <project_file path="./FlashX/Graphics/ICamera.as" filetype="as" />
         <project_file path="./FlashX/Graphics/ILighting.as" filetype="as" />
         <project_file path="./FlashX/Graphics/ISprite.as" filetype="as" />
@@ -39,10 +55,9 @@
         <project_file path="./FlashX/Graphics/IPrimitive.as" filetype="as" />
         <project_file path="./FlashX/Graphics/IVertex.as" filetype="as" />
         <project_file path="./FlashX/Graphics/GraphicsDevice.as" filetype="as" />
+        <project_file path="./FlashX/Graphics/IRenderer.as" filetype="as" />
     </project_folder>
     <project_folder name="Sound" expanded="false">
-    </project_folder>
-    <project_folder name="Networking" expanded="false">
     </project_folder>
     <project_folder name="GUI" expanded="false">
     </project_folder>
@@ -56,6 +71,7 @@
         <project_file path="./FlashX/Core/IUpdateable.as" filetype="as" />
         <project_file path="./FlashX/Core/Time.as" filetype="as" />
         <project_file path="./FlashX/Core/TimeHandler.as" filetype="as" />
+        <project_file path="./FlashX/Core/Colour.as" filetype="as" />
     </project_folder>
     <project_folder name="Math" expanded="true">
         <project_file path="./FlashX/Math/MathHelper.as" filetype="as" />
@@ -74,6 +90,9 @@
     </project_folder>
     <project_folder name="Content" expanded="true">
         <project_file path="./FlashX/Content/ContentManager.as" filetype="as" />
+    </project_folder>
+    <project_folder name="Network" expanded="true">
+        <project_file path="./FlashX/Network/NetworkDevice.as" filetype="as" />
     </project_folder>
     <project_file path="./FlashX.fla" filetype="fla" profile="" />
 </flash_project>

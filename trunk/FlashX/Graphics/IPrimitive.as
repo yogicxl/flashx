@@ -1,8 +1,10 @@
 ﻿package FlashX.Graphics
 {
-	public class IPrimitive
+	import FlashX.Core.*;
+	
+	public interface IPrimitive extends IDrawable
 	{
-		private var vertices:Array;
-		private var indices:Array;
+		function get Vertices():Array;
+		function get Indices():Array;
 	}
 }

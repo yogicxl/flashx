@@ -79,11 +79,7 @@
 		
 		public function toString():String
 		{
-			var x:Number = Math.round(this.X * 1000) / 1000;
-			var y:Number = Math.round(this.Y * 1000) / 1000;
-			var w:Number = Math.round(this.W * 1000) / 1000;
-			
-			return "[Quaternion2 " + x + ", " + y + ", " + z + "]";
+			return "[Quaternion2 " + this.X + ", " + this.Y + ", " + this.W + "]";
 		}
 		
 		/*
