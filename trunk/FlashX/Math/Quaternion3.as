@@ -1,11 +1,16 @@
 ﻿package FlashX.Math
 {
+	import FlashX.Core.Errors.*;
+	
 	public class Quaternion3 implements IQuaternion
 	{
-		private var x:int;
-		private var y:int;
-		private var z:int;
-		private var w:int;
+		private var x:Number;
+		private var y:Number;
+		private var z:Number;
+		private var w:Number;
+		
+		private var length:Number;
+		private var changed:Boolean;
 		
 		/*
 		* Constructor
@@ -61,6 +66,23 @@
 		public function get W():int
 		{
 			return this.w;
+		}
+		
+		public function get Length():Number
+		{
+			if(this.changed)
+			{
+				this.length = Math.sqrt(this.LengthSquared);
+				
+				this.changed = false;
+			}
+			
+			return this.length;
+		}
+		
+		public function get LengthSquared():Number
+		{
+			return (this.X * this.X) + (this.Y * this.Y) + (this.Z * this.Z) + (this.W * this.W);
 		}
 		
 		/*

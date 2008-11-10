@@ -1,5 +1,6 @@
 ﻿package FlashX.Graphics.Components
 {
+	import flash.system.System;
 	import flash.display.MovieClip;
 	import flash.text.TextField;
 	import flash.text.TextFormat;
@@ -9,22 +10,14 @@
 	import FlashX.Core.*;
 	import FlashX.Graphics.*;
 	
-	public class FPSComponent extends BasicComponent
+	public class MemoryComponent extends BasicComponent
 	{
-		private var frames:Number;
-		private var before:Number;
-		private var now:Number;
-		private var delay:Number;
 		private var mc:MovieClip;
 		private var txt:TextField;
 		
-		public function FPSComponent(parent:MovieClip, x:Number, y:Number, width:Number, height:Number)
+		public function MemoryComponent(parent:MovieClip, x:Number, y:Number, width:Number, height:Number)
 		{
 			this.Visible = true;
-			
-			this.frames = this.before = this.now = 0;
-
-			this.delay = 1000;
 			
 			this.mc = new MovieClip();
 			
@@ -46,20 +39,12 @@
 
 		public override function Update(time:Time):void
 		{
-			++this.frames;
 
-			this.now = getTimer();
 		}
 
 		public override function Draw(device:GraphicsDevice):void
 		{
-			if((this.now - this.before) > this.delay)
-			{
-				this.txt.text = String(this.frames) + " FPS";
-
-				this.frames = 0;
-				this.before = this.now;
-			}
+			this.txt.text = Number(System.totalMemory / 1024 / 1024).toFixed(2) + " MB";
 		}
 	}
 }

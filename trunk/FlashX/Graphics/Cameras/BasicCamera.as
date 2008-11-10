@@ -8,7 +8,6 @@
 	{
 		private var position:IVector;
 		private var rotation:IVector;
-		
 		private var direction:IQuaternion;
 		
 		private var view:IMatrix;
@@ -84,8 +83,6 @@
 		public function Initialize():void {}
 		
 		public function Update(time:Time):void {}
-
-		public function Draw(device:GraphicsDevice):void {}
 		
 		public function Dispose():void {}
 	}

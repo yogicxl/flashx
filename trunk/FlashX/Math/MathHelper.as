@@ -13,12 +13,19 @@
 
 		public static function ToDegrees(radians:Number):Number
 		{
-			return radians * (180.0 / Math.PI);
+			return radians * (180 / Math.PI);
 		}
 		
 		public static function ToRadians(degrees:Number):Number
 		{
-			return degrees * (Math.PI / 180.0);
+			return degrees * (Math.PI / 180);
+		}
+		
+		public static function WithinEpsilon(n1:Number, n2:Number):Boolean
+		{
+			var n3:Number = n1 - n2;
+			
+			return ((n3 >= -MathHelper.Epsilon) && (n3 <= MathHelper.Epsilon));
 		}
 	}
 }

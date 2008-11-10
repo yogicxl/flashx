@@ -6,15 +6,17 @@
 
 package FlashX.Math
 {
+	import FlashX.Core.Errors.*;
+	
 	public class Vector2 implements IVector
 	{
-		private var x:int;
-		private var y:int;
+		private var x:Number;
+		private var y:Number;
 
 		private var length:Number;
 		private var changed:Boolean;
 		
-		public function Vector2(x:int = 0, y:int = 0)
+		public function Vector2(x:Number = 0, y:Number = 0)
 		{
 			this.length = 0;
 			this.changed = false;
@@ -27,7 +29,7 @@ package FlashX.Math
 		* Properties
 		*/
 		
-		public function set X(x:int):void 
+		public function set X(x:Number):void 
 		{
 			if(this.x != x)
 				this.changed = true;
@@ -35,12 +37,12 @@ package FlashX.Math
 			this.x = x;
 		}
 		
-		public function get X():int
+		public function get X():Number
 		{
 			return this.x;
 		}
 		
-		public function set Y(y:int):void 
+		public function set Y(y:Number):void 
 		{
 			if(this.y != y)
 				this.changed = true;
@@ -48,14 +50,14 @@ package FlashX.Math
 			this.y = y;
 		}
 		
-		public function get Y():int
+		public function get Y():Number
 		{
 			return this.y;
 		}
 		
-		public function set Z(z:int):void  { }
+		public function set Z(z:Number):void  { }
 		
-		public function get Z():int { return 0; }
+		public function get Z():Number { return 0; }
 		
 		public function set Length(length:Number):void 
 		{
@@ -165,9 +167,9 @@ package FlashX.Math
 		
 		public function Normalize():IVector
 		{
-			this.Divide(this.Length);
+			//this.Divide(this.Length);
 			
-			//this.Length = 1;
+			this.Length = 1;
 			
 			return this;
 		}
@@ -193,6 +195,29 @@ package FlashX.Math
 			this.X -= normal.X * dot;
 			this.Y -= normal.Y * dot;
 
+			return this;
+		}
+		
+		public function Transform(m:IMatrix):IVector
+		{
+			return this.TransformMatrix(m);
+		}
+		
+		public function TransformMatrix(m:IMatrix):IVector
+		{
+			var v:IVector = this.Clone();
+
+			throw new NotImplementedError();
+			
+			return this;
+		}
+		
+		public function TransformQuaternion(q:IQuaternion):IVector
+		{
+			var v:IVector = this.Clone();
+			
+			throw new NotImplementedError();
+			
 			return this;
 		}
 		

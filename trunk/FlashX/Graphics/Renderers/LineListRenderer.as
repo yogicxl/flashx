@@ -16,6 +16,7 @@
 				}
 				else
 				{
+					
 					this.DrawPrimitives(device, vertexData, 0, vertexData.length + 1);
 				}
 			}
@@ -24,17 +25,28 @@
 		
 		public override function DrawPrimitives(device:GraphicsDevice, vertexData:Array, vertexOffset:int, primitiveCount:int):void
 		{
-			for each(var vertex:IPrimitive in vertexData)
+			var preVertex:IVertex;
+			
+			for each(var vertex:IVertex in vertexData)
 			{
+				if(preVertex != null)
+				{
+					
+					
+					Raster.line(device.drawer, vertex.Position.X * 256 / vertex.Position.Z, vertex.Position.Y * 256 / vertex.Position.Z, preVertex.Position.X * 256 / preVertex.Position.Z, preVertex.Position.Y * 256 / preVertex.Position.Z, vertex.Color.base);
+				}
 				
+				preVertex = vertex;
 			}
+			
+			Raster.line(device.drawer, preVertex.Position.X * 256 / preVertex.Position.Z, preVertex.Position.Y * 256 / preVertex.Position.Z, vertexData[0].Position.X * 256 / vertexData[0].Position.Z, vertexData[0].Position.Y * 256 / vertexData[0].Position.Z, vertexData[0].Color.base);
 		}
 		
 		public override function DrawIndexedPrimitives(device:GraphicsDevice, vertexData:Array, vertexOffset:int, indexData:Array, indexOffset:int, primitiveCount:int):void
 		{
 			for each(var index:int in indexData)
 			{
-				var vertex:IPrimitive = vertexData[index];
+				var vertex:IVertex = vertexData[index];
 
 			}
 		}

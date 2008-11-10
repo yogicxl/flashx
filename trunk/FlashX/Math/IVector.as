@@ -9,17 +9,17 @@
 		* Properties
 		*/
 		
-		function set X(x:int):void;
+		function set X(x:Number):void;
 		
-		function get X():int;
+		function get X():Number;
 		
-		function set Y(y:int):void;
+		function set Y(y:Number):void;
 		
-		function get Y():int;
+		function get Y():Number;
 		
-		function set Z(z:int):void;
+		function set Z(z:Number):void;
 		
-		function get Z():int;
+		function get Z():Number;
 		
 		function set Length(length:Number):void;
 		
@@ -56,6 +56,12 @@
 		function Angle(v:IVector):Number;
 		
 		function Reflect(normal:IVector):IVector;
+		
+		function Transform(m:IMatrix):IVector;
+		
+		function TransformMatrix(m:IMatrix):IVector;
+		
+		function TransformQuaternion(q:IQuaternion):IVector;
 
 		/*
 		* Basic Methods

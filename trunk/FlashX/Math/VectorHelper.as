@@ -49,6 +49,21 @@
 			return v1.Clone().Cross(v2);
 		}
 		
+		public static function Transform(v:IVector, m:IMatrix):IVector
+		{
+			return v.Clone().Transform(m);
+		}
+		
+		public static function TransformMatrix(v:IVector, m:IMatrix):IVector
+		{
+			return v.Clone().TransformMatrix(m);
+		}
+		
+		public static function TransformQuaternion(v:IVector, q:IQuaternion):IVector
+		{
+			return v.Clone().TransformQuaternion(q);
+		}
+		
 		public static function Equals(v1:IVector, v2:IVector):Boolean
 		{
 			return v1.Equals(v2);

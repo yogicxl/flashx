@@ -24,7 +24,7 @@
 		
 		public override function DrawPrimitives(device:GraphicsDevice, vertexData:Array, vertexOffset:int, primitiveCount:int):void
 		{
-			for each(var vertex:IPrimitive in vertexData)
+			for each(var vertex:IVertex in vertexData)
 			{
 				
 			}
@@ -34,7 +34,7 @@
 		{
 			for each(var index:int in indexData)
 			{
-				var vertex:IPrimitive = vertexData[index];
+				var vertex:IVertex = vertexData[index];
 
 			}
 		}

@@ -13,11 +13,10 @@
 		public function FreeCamera()
 		{
 			this.Position = Vector3.Zero;
-			this.Rotation = Vector3.Zero;
-			
+			this.Rotation = Vector3.Forward;
 			this.Direction = Quaternion3.Identity;
 
-			this.View = Matrix4.Identity;
+			//this.View = Matrix4.Identity;
 		}
 		
 		/*
@@ -26,22 +25,17 @@
 		
 		public override function Initialize():void
 		{
-			super.Initialize();
+			
 		}
 
 		public override function Update(time:Time):void
 		{
-			super.Update(time);
-		}
-
-		public override function Draw(device:GraphicsDevice):void
-		{
-			super.Draw(device);
+			this.View = Matrix4.CreateLookAt(this.Position, this.Rotation, Vector3.Up);
 		}
 		
 		public override function Dispose():void
 		{
-			super.Dispose();
+			
 		}
 	}
 }
