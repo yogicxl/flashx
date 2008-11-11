@@ -2,13 +2,13 @@
 {
 	public class MathHelper
 	{
-        public static const E:Number = 2.71828;
-        public static const Log10E:Number = 0.434294;
-        public static const Log2E:Number = 1.4427;
-        public static const Pi:Number = 3.14159;
-        public static const PiOver2:Number = 1.5708;
-        public static const PiOver4:Number = 0.785398;
-        public static const TwoPi:Number = 6.28319;
+		public static const E:Number = 2.718282;
+		public static const Log10E:Number = 0.434295;
+		public static const Log2E:Number = 1.442695;
+		public static const Pi:Number = 3.141593;
+		public static const PiOver2:Number = 1.570796;
+		public static const PiOver4:Number = 0.785398;
+		public static const TwoPi:Number = 6.283185;
 		public static const Epsilon:Number = 0.000001;
 
 		public static function ToDegrees(radians:Number):Number
