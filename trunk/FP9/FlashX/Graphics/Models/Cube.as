@@ -55,10 +55,6 @@
 			//var filter:BlurFilter = new BlurFilter();
 			//device.drawer.applyFilter(device.drawer, rect, pt, filter);
 			
-//for (var i:uint = 0; i < 80; i++) {
-//    
-//}
-			
 				//var rotationMatrix:Matrix = new Matrix();
 				//rotationMatrix.translate(-16,-16);
 				//rotationMatrix.rotate(angle_in_radians);
@@ -72,8 +68,6 @@
 			this.Filter.View = MatrixHelper.Multiply(this.Camera.View, MatrixHelper.CreateTranslation(this.Position));
 			this.Filter.Projection = Matrix4.CreatePerspectiveFieldOfView(MathHelper.ToRadians(45), device.Viewport.AspectRatio, 1, 1000);
 			
-			//trace(device.Viewport.Project(new Vector3(10, 10, -10), this.Filter.Projection, this.Filter.View, this.Filter.World));
-
 			this.Filter.Begin(device);
 
 			for each(var primitive:IPrimitive in this.Primitives)

@@ -24,11 +24,11 @@
 			{
 				if(indexData.length > 0)
 				{
-					this.DrawIndexedPrimitives(device, vertexData, 0, indexData, 0, vertexData.length + 1);
+					this.DrawIndexedPrimitives(device, vertexData, 0, indexData, 0, indexData.length / 3);
 				}
 				else
 				{
-					this.DrawPrimitives(device, vertexData, 0, vertexData.length + 1);
+					this.DrawPrimitives(device, vertexData, 0, vertexData.length * 3);
 				}
 			}
 		}
@@ -59,22 +59,17 @@
 		
 		public function DrawIndexedPrimitives(device:GraphicsDevice, vertexData:Array, vertexOffset:int, indexData:Array, indexOffset:int, primitiveCount:int):void
 		{
-			for(var i = 0, l = indexData.length; i < l; i+=3)
+			for(var i = 0, l = primitiveCount; i < l; ++i)
 			{
-				if(indexData.length >= i+2)
-				{
-					var vertex:IVertex = vertexData[indexData[i]];
-					var vertex2:IVertex = vertexData[indexData[i+1]];
-					var vertex3:IVertex = vertexData[indexData[i+2]];
+				var vertex:IVertex = vertexData[indexData[(i * 3) + 0]];
+				var vertex2:IVertex = vertexData[indexData[(i * 3) + 1]];
+				var vertex3:IVertex = vertexData[indexData[(i * 3) + 2]];
+			
+				var v1:IVector = device.Viewport.Project(vertex.Position, device.Filter.Projection, device.Filter.View, device.Filter.World);
+				var v2:IVector = device.Viewport.Project(vertex2.Position, device.Filter.Projection, device.Filter.View, device.Filter.World);
+				var v3:IVector = device.Viewport.Project(vertex3.Position, device.Filter.Projection, device.Filter.View, device.Filter.World);
 				
-					var v1:IVector = device.Viewport.Project(vertex.Position, device.Filter.Projection, device.Filter.View, device.Filter.World);
-					var v2:IVector = device.Viewport.Project(vertex2.Position, device.Filter.Projection, device.Filter.View, device.Filter.World);
-					var v3:IVector = device.Viewport.Project(vertex3.Position, device.Filter.Projection, device.Filter.View, device.Filter.World);
-					//trace(device.Filter.View);
-					//trace(v1);
-					//trace(vertex.Position);
-					Raster.filledTri(device.drawer, v1.X, v1.Y, v2.X, v2.Y, v3.X, v3.Y, vertex.Color.base);
-				}
+				Raster.filledTri(device.drawer, v1.X, v1.Y, v2.X, v2.Y, v3.X, v3.Y, vertex.Color.base);
 			}
 		}
 	}
