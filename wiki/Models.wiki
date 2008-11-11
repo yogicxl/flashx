@@ -1,5 +1,5 @@
+#summary How to create and use models
 #labels Featured
-#How to create and use models
 
 = Introduction =
 
