@@ -1,0 +1,6 @@
+#labels Featured
+#How to create and use models
+
+= Introduction =
+
+Each model contains a camera, lighting, filter/s, and a list of primitives (triangles, lines, points).
