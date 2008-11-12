@@ -119,24 +119,23 @@
 			
 			if(this.active)
 			{
-				this.components.forEach(function(element:*, index:int, array:Array)
-				{
-					element.Update(timer.CurrentTime);
-				});
-				
-				this.drawableComponents.forEach(function(element:*, index:int, array:Array)
-				{
-					element.Update(timer.CurrentTime);
-				});
+				//var component:IComponent;
 				
 				this.timer.Update();
-			
+				
 				this.graphics.drawer.fillRect(this.graphics.drawer.rect, 0xFF000000);
 				
-				this.drawableComponents.forEach(function(element:*, index:int, array:Array)
+				for each(var component:IComponent in this.components)
 				{
-					element.Draw(self.graphics);
-				});
+					component.Update(timer.CurrentTime);
+				}
+				
+				for each(var drawableComponent:IDrawableComponent in this.drawableComponents)
+				{
+					drawableComponent.Update(timer.CurrentTime);
+				
+					drawableComponent.Draw(self.graphics);
+				}
 			}
 		}
 		
