@@ -122,14 +122,13 @@
 		
 		public function Project(source:IVector, projection:IMatrix, view:IMatrix, world:IMatrix):IVector
 		{
-			
 			var m:IMatrix = MatrixHelper.Multiply(world, view, projection);
 			
 			var v:IVector = VectorHelper.Transform(source, m);
 			
 			var n:Number = (source.X * m[1][4]) + (source.Y * m[2][4]) + (source.Z * m[3][4]) + m[4][4];
 			
-			if (!MathHelper.WithinEpsilon(n, 1))
+			if(!MathHelper.WithinEpsilon(n, 1))
 				v.Divide(n);
 			
 			v.X = (((v.X + 1) * 0.5) * this.Width) + this.X;

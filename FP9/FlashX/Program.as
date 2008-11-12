@@ -90,7 +90,6 @@
 		
 		public function InitializeGraphics()
 		{
-			this.graphics.bmp = new Bitmap(this.graphics.drawer);
 			this.mc.addChild(this.graphics.bmp);
 		}
 		
@@ -115,27 +114,21 @@
 		
 		public function Main(e:Event)
 		{
-			var self:Program = this;
-			
+			while(1)
 			if(this.active)
 			{
-				//var component:IComponent;
+				for each(var c1:IComponent in this.components)
+					c1.Update(timer.CurrentTime);
+				
+				for each(var c2:IDrawableComponent in this.drawableComponents)
+					c2.Update(timer.CurrentTime);
 				
 				this.timer.Update();
 				
 				this.graphics.drawer.fillRect(this.graphics.drawer.rect, 0xFF000000);
 				
-				for each(var component:IComponent in this.components)
-				{
-					component.Update(timer.CurrentTime);
-				}
-				
-				for each(var drawableComponent:IDrawableComponent in this.drawableComponents)
-				{
-					drawableComponent.Update(timer.CurrentTime);
-				
-					drawableComponent.Draw(self.graphics);
-				}
+				for each(var c3:IDrawableComponent in this.drawableComponents)
+					c3.Draw(this.graphics);
 			}
 		}
 		
