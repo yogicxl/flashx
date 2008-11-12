@@ -30,8 +30,6 @@
         </project_folder>
         <project_folder name="Components" expanded="true">
             <project_file path="./FlashX/Graphics/Components/BasicComponent.as" filetype="as" />
-            <project_file path="./FlashX/Graphics/Components/FPSComponent.as" filetype="as" />
-            <project_file path="./FlashX/Graphics/Components/MemoryComponent.as" filetype="as" />
         </project_folder>
         <project_folder name="Models" expanded="true">
             <project_file path="./FlashX/Graphics/Models/BasicModel.as" filetype="as" />
@@ -75,7 +73,11 @@
     </project_folder>
     <project_folder name="GUI" expanded="false">
     </project_folder>
-    <project_folder name="Input" expanded="false">
+    <project_folder name="Input" expanded="true">
+        <project_file path="./FlashX/Input/KeyboardState.as" filetype="as" />
+        <project_file path="./FlashX/Input/Keys.as" filetype="as" />
+        <project_file path="./FlashX/Input/KeyboardDevice.as" filetype="as" />
+        <project_file path="./FlashX/Input/MouseDevice.as" filetype="as" />
     </project_folder>
     <project_folder name="Core" expanded="true">
         <project_folder name="Errors" expanded="true">
@@ -83,11 +85,16 @@
             <project_file path="./FlashX/Core/Errors/DivideByZeroError.as" filetype="as" />
             <project_file path="./FlashX/Core/Errors/NotImplementedError.as" filetype="as" />
         </project_folder>
-        <project_folder name="Events" expanded="false">
+        <project_folder name="Events" expanded="true">
+            <project_file path="./FlashX/Core/Events/DrawEvent.as" filetype="as" />
+            <project_file path="./FlashX/Core/Events/UpdateEvent.as" filetype="as" />
         </project_folder>
         <project_folder name="Components" expanded="true">
             <project_file path="./FlashX/Core/Components/BasicComponent.as" filetype="as" />
             <project_file path="./FlashX/Core/Components/QualityComponent.as" filetype="as" />
+            <project_file path="./FlashX/Core/Components/FramesComponent.as" filetype="as" />
+            <project_file path="./FlashX/Core/Components/MemoryComponent.as" filetype="as" />
+            <project_file path="./FlashX/Core/Components/BasicDrawableComponent.as" filetype="as" />
         </project_folder>
         <project_file path="./FlashX/Core/Abstract.as" filetype="as" />
         <project_file path="./FlashX/Core/IComponent.as" filetype="as" />
@@ -132,5 +139,6 @@
         </project_folder>
         <project_file path="./FlashX/Network/NetworkDevice.as" filetype="as" />
     </project_folder>
-    <project_file path="./FlashX.fla" filetype="fla" profile="" />
+    <project_file path="./FlashX.fla" filetype="fla" profile="" def_file="true" />
+    <project_file path="./FlashX/Program.as" filetype="as" />
 </flash_project>

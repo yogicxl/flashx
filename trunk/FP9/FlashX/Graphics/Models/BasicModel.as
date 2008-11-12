@@ -20,12 +20,15 @@
 		private var lighting:ILighting;
 		
 		private var visible:Boolean;
+		private var active:Boolean;
 		
 		/*
 		* Properties
 		*/
 		
 
+		
+		
 		
 		/*
 		* Model Properties
@@ -49,6 +52,16 @@
 		public function set Visible(visible:Boolean):void
 		{
 			this.visible = visible;
+		}
+		
+		public function get Active():Boolean
+		{
+			return this.active;
+		}
+		
+		public function set Active(active:Boolean):void
+		{
+			this.active = active;
 		}
 		
 		/*
