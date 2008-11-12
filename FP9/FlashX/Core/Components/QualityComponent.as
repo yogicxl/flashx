@@ -8,15 +8,15 @@
 	
 	public class QualityComponent extends BasicComponent
 	{
-		private var fr:Number;
-		private var buffer:Number;
 		private var stage:Stage;
+		private var fps:FramesComponent;
 		
-		public function QualityComponent(parent:MovieClip)
+		public function QualityComponent(parent:MovieClip, fps:FramesComponent)
 		{
+			this.Active = true;
+			
 			this.stage = parent.stage;
-			this.fr = parent.stage.frameRate;
-			this.buffer = 5;
+			this.fps = fps;
 		}
 		
 		public override function Initialize():void
@@ -26,17 +26,14 @@
 
 		public override function Update(time:Time):void
 		{
-			if(stage.frameRate <= this.fr - this.buffer)
-				this.stage.quality = StageQuality.LOW;
-			
-			else if((this.stage.frameRate > this.fr - this.buffer) && (this.stage.frameRate < this.fr + this.buffer))
-				this.stage.quality = StageQuality.MEDIUM;
-			
-			else if(this.stage.frameRate >= this.fr + this.buffer)
-				this.stage.quality = StageQuality.HIGH;
-			
-			else if(this.stage.frameRate >= this.fr + this.buffer * 1.5)
+			if(this.fps.fps > 50)
 				this.stage.quality = StageQuality.BEST;
+			else if(this.fps.fps > 40)
+				this.stage.quality = StageQuality.HIGH;
+			else if(this.fps.fps > 30)
+				this.stage.quality = StageQuality.MEDIUM;
+			else
+				this.stage.quality = StageQuality.LOW;
 		}
 	}
 }

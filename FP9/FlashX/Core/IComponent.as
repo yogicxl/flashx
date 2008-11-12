@@ -7,5 +7,8 @@
 		*/
 		
 		function Initialize():void;
+		
+		function get Active():Boolean;
+		function set Active(active:Boolean):void;
 	}
 }

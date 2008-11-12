@@ -13,7 +13,8 @@
 		private var view:IMatrix;
 		
 		private var visible:Boolean;
-
+		private var active:Boolean;
+		
 		/*
 		* Properties
 		*/
@@ -26,6 +27,16 @@
 		public function get Visible():Boolean
 		{
 			return this.visible;
+		}
+		
+		public function get Active():Boolean
+		{
+			return this.active;
+		}
+		
+		public function set Active(active:Boolean):void
+		{
+			this.active = active;
 		}
 		
 		/*

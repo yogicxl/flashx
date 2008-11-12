@@ -5,6 +5,22 @@
 	
 	public class BasicComponent extends Abstract implements IComponent
 	{
+		private var active:Boolean;
+		
+		/*
+		* Properties
+		*/
+		
+		public function get Active():Boolean
+		{
+			return this.active;
+		}
+		
+		public function set Active(active:Boolean):void
+		{
+			this.active = active;
+		}
+		
 		/*
 		* Methods
 		*/
