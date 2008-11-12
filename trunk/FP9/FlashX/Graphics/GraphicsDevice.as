@@ -4,15 +4,14 @@
 	import flash.display.Bitmap;
 	import flash.display.Stage;
 	import flash.display.Sprite;
+	import flash.display.PixelSnapping;
 	
 	import FlashX.Core.*;
 	import FlashX.Math.*;
-	
+	import flash.events.EventDispatcher;
 	public class GraphicsDevice
 	{
 		public var drawer:BitmapData;
-		public var display:Sprite;
-		public var stage2:Stage;
 		public var bmp:Bitmap;
 		public var Viewport:Screen;
 		public var Filter:IFilter;
@@ -23,13 +22,17 @@
 		
 		public function GraphicsDevice()
 		{
-			 this.drawer = new BitmapData(800, 600, false, 0xFFCC00);
-			 this.display = new Sprite();
+			this.drawer = new BitmapData(800, 600, false, 0xFFCC00);
+			//this.display = new Sprite();
 			 
-			 this.Viewport = new Screen();
+			this.bmp = new Bitmap(this.drawer);
+			this.bmp.smoothing = false;
+			this.bmp.pixelSnapping = PixelSnapping.AUTO;
 			 
-			 this.Viewport.Width = 800;
-			 this.Viewport.Height = 600;
+			this.Viewport = new Screen();
+			 
+			this.Viewport.Width = 800;
+			this.Viewport.Height = 600;
 		}
 		
 		/*
